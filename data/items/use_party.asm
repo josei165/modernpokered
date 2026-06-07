@@ -30,7 +30,8 @@ UsableItems_PartyMenu:
 	db X_ATTACK
 	db X_DEFEND
 	db X_SPEED
-	db X_SPECIAL
+	db X_SP_ATK
+	db X_SP_DEF
 	db PP_UP
 	db ETHER
 	db MAX_ETHER

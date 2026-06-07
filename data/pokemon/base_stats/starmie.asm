@@ -1,7 +1,7 @@
 	db DEX_STARMIE ; pokedex id
 
-	db  60,  75,  85, 115, 100
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, PSYCHIC_TYPE ; type
 	db 60 ; catch rate

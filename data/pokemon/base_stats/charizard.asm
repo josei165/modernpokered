@@ -1,7 +1,7 @@
 	db DEX_CHARIZARD ; pokedex id
 
-	db  78,  84,  78, 100,  85
-	;   hp  atk  def  spd  spc
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FLYING ; type
 	db 45 ; catch rate

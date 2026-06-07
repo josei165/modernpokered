@@ -97,6 +97,8 @@ PoisonEffect:
 	cp POISON ; can't poison a poison-type target
 	jr z, .noEffect
 	ld a, [de]
+	cp POISON_SIDE_EFFECT3	; is 'guaranteed poison' the current move's side effect?
+	jr z, .inflictPoison	; if so, bypass RNG and jump straight to .inflictPoison
 	cp POISON_SIDE_EFFECT1
 	ld b, 20 percent + 1 ; chance of poisoning
 	jr z, .sideEffectTest
@@ -211,6 +213,10 @@ FreezeBurnParalyzeEffect:
 	cp b ; do target type 2 and move type match?
 	ret z  ; return if they match
 	ld a, [wPlayerMoveEffect]
+	cp PARALYZE_SIDE_EFFECT3 ; is 'guaranteed paralysis' our move's secondary effect?
+	jr z, .paralyze1         ; if so, bypass RNG call and jump straight to paralyzing the enemy
+	cp BURN_SIDE_EFFECT3     ; same check for 'guaranteed burn'
+	jr z, .burn1             ; jump straight to burning the enemy
 	cp PARALYZE_SIDE_EFFECT1 + 1
 	ld b, 10 percent + 1
 	jr c, .regular_effectiveness
@@ -230,7 +236,7 @@ FreezeBurnParalyzeEffect:
 	jr z, .burn1
 	cp FREEZE_SIDE_EFFECT1
 	jr z, .freeze1
-; paralyze1
+.paralyze1 ; we're just un-commenting this to create a destination for the 'jr z, .paralyze1' inserted above
 	ld a, 1 << PAR
 	ld [wEnemyMonStatus], a
 	call QuarterSpeedDueToParalysis ; quarter speed of affected mon
@@ -266,6 +272,10 @@ FreezeBurnParalyzeEffect:
 	cp b
 	ret z
 	ld a, [wEnemyMoveEffect]
+	cp PARALYZE_SIDE_EFFECT3 ; is 'guaranteed paralysis' our opponent's secondary effect?
+	jr z, .paralyze2         ; if so, bypass RNG call and jump straight to paralyzing our Mon
+	cp BURN_SIDE_EFFECT3     ; same check for burn
+	jr z, .burn2             ; jump straight to burning our Mon
 	cp PARALYZE_SIDE_EFFECT1 + 1
 	ld b, 10 percent + 1
 	jr c, .regular_effectiveness2
@@ -283,7 +293,7 @@ FreezeBurnParalyzeEffect:
 	jr z, .burn2
 	cp FREEZE_SIDE_EFFECT1
 	jr z, .freeze2
-; paralyze2
+.paralyze2 ; un-commenting this, same as before
 	ld a, 1 << PAR
 	ld [wBattleMonStatus], a
 	call QuarterSpeedDueToParalysis
@@ -295,7 +305,7 @@ FreezeBurnParalyzeEffect:
 	ld hl, BurnedText
 	jp PrintText
 .freeze2
-; hyper beam bits aren't reset for opponent's side
+	call ClearHyperBeam
 	ld a, 1 << FRZ
 	ld [wBattleMonStatus], a
 	ld hl, FrozenText
@@ -348,7 +358,7 @@ FireDefrostedText:
 	text_far _FireDefrostedText
 	text_end
 
-StatModifierUpEffect:
+StatModifierUpEffect::
 	ld hl, wPlayerMonStatMods
 	ld de, wPlayerMoveEffect
 	ldh a, [hWhoseTurn]
@@ -382,7 +392,7 @@ StatModifierUpEffect:
 .ok
 	ld [hl], b
 	ld a, c
-	cp $4
+	cp NUM_STATS-1 ; HP is not a modifiable stat through move effects, hence -1
 	jr nc, UpdateStatDone ; jump if mod affected is evasion/accuracy
 	push hl
 	ld hl, wBattleMonAttack + 1
@@ -482,7 +492,16 @@ UpdateStatDone:
 	call nz, Bankswitch
 	pop de
 .notMinimize
+    ldh a, [hWhoseTurn]
+    and a
+    ld a, [wPlayerMovePower]
+    jr z, .gotUsersPower1
+    ld a, [wEnemyMovePower]
+.gotUsersPower1
+    and a ; Skip animation if damage dealing move
+    jr nz, .skipAnimation
 	call PlayCurrentMoveAnimation
+.skipAnimation
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .applyBadgeBoostsAndStatusPenalties
@@ -510,6 +529,14 @@ RestoreOriginalStatModifier:
 	dec [hl]
 
 PrintNothingHappenedText:
+	ld a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMovePower]
+	jr z, .gotUsersPower3
+	ld a, [wEnemyMovePower]
+.gotUsersPower3
+	and a
+	ret nz
 	ld hl, NothingHappenedText
 	jp PrintText
 
@@ -546,12 +573,6 @@ StatModifierDownEffect:
 	ld hl, wPlayerMonStatMods
 	ld de, wEnemyMoveEffect
 	ld bc, wPlayerBattleStatus1
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	jr z, .statModifierDownEffect
-	call BattleRandom
-	cp 25 percent + 1 ; chance to miss by in regular battle
-	jp c, MoveMissed
 .statModifierDownEffect
 	call CheckTargetSubstitute ; can't hit through substitute
 	jp nz, MoveMissed
@@ -562,12 +583,20 @@ StatModifierDownEffect:
 	cp 33 percent + 1 ; chance for side effects
 	jp nc, CantLowerAnymore
 	ld a, [de]
-	sub ATTACK_DOWN_SIDE_EFFECT ; map each stat to 0-3
+	sub ATTACK_DOWN_SIDE_EFFECT ; map each stat to 0-4
 	jr .decrementStatMod
 .nonSideEffect ; non-side effects only
 	push hl
 	push de
 	push bc
+	ld a, [hWhoseTurn]			; begin process for finding power of last move used
+	and a						; identify whose turn it is, 0 = player, nonzero = enemy
+	ld a, [wPlayerMovePower]	; load player move power
+	jr z, .checkDamagingMove	; jump if it is player's turn
+	ld a, [wEnemyMovePower]		; otherwise, load enemy move power
+.checkDamagingMove		; checks if status move or damaging move w/ guaranteed side effect
+	and a				; did the last move have 0 power?
+	jr nz, .getStatMod1	; if not (i.e. it's a damaging move), skip acc. check on side effect
 	call MoveHitTest ; apply accuracy tests
 	pop bc
 	pop de
@@ -578,6 +607,12 @@ StatModifierDownEffect:
 	ld a, [bc]
 	bit INVULNERABLE, a ; fly/dig
 	jp nz, MoveMissed
+	jr .getStatMod2
+.getStatMod1	; we still need to pop these values, as in the subroutine above
+	pop bc
+	pop de
+	pop hl
+.getStatMod2	; now back to the usual prep for stat modification
 	ld a, [de]
 	sub ATTACK_DOWN1_EFFECT
 	cp EVASION_DOWN1_EFFECT + $3 - ATTACK_DOWN1_EFFECT ; covers all -1 effects
@@ -601,7 +636,7 @@ StatModifierDownEffect:
 .ok
 	ld [hl], b ; save modified mod
 	ld a, c
-	cp $4
+	cp NUM_STATS-1 ; HP is not a modifiable stat through move effects, hence -1
 	jr nc, UpdateLoweredStatDone ; jump for evasion/accuracy
 	push hl
 	push de
@@ -706,6 +741,14 @@ CantLowerAnymore:
 	ld a, [de]
 	cp ATTACK_DOWN_SIDE_EFFECT
 	ret nc
+	ld a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMovePower]
+	jr z, .gotUsersPower4
+	ld a, [wEnemyMovePower]
+.gotUsersPower4
+	and a
+	ret nz
 	ld hl, NothingHappenedText
 	jp PrintText
 
@@ -1112,6 +1155,14 @@ RecoilEffect:
 	jpfar RecoilEffect_
 
 ConfusionSideEffect:
+	ld a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveEffect]
+	jr z, .checkGuaranteedConfusionEffect
+	ld a, [wEnemyMoveEffect]
+.checkGuaranteedConfusionEffect
+	cp CONFUSION_SIDE_EFFECT2
+	jr z, ConfusionSideEffectSuccess
 	call BattleRandom
 	cp 10 percent ; chance of confusion
 	ret nc
@@ -1147,7 +1198,11 @@ ConfusionSideEffectSuccess:
 	ld [bc], a ; confusion status will last 2-5 turns
 	pop af
 	cp CONFUSION_SIDE_EFFECT
-	call nz, PlayCurrentMoveAnimation2
+	jr z, .displayBecameConfusedText
+	cp CONFUSION_SIDE_EFFECT2
+	jr z, .displayBecameConfusedText
+	call PlayCurrentMoveAnimation2
+.displayBecameConfusedText
 	ld hl, BecameConfusedText
 	jp PrintText
 
@@ -1157,6 +1212,8 @@ BecameConfusedText:
 
 ConfusionEffectFailed:
 	cp CONFUSION_SIDE_EFFECT
+	ret z
+	cp CONFUSION_SIDE_EFFECT2
 	ret z
 	ld c, 50
 	call DelayFrames

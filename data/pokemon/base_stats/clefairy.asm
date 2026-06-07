@@ -1,7 +1,7 @@
 	db DEX_CLEFAIRY ; pokedex id
 
-	db  70,  45,  48,  35,  60
-	;   hp  atk  def  spd  spc
+	db   55,   50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 150 ; catch rate

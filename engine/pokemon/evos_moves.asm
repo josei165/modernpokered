@@ -20,6 +20,8 @@ EvolutionAfterBattle:
 	push hl
 	push bc
 	push de
+	ld hl, wStartBattleLevels
+	push hl
 	ld hl, wPartyCount
 	push hl
 
@@ -27,11 +29,16 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld hl, wWhichPokemon
 	inc [hl]
 	pop hl
+	pop de
+	ld a, [de]
+	ld [wTempCoins1], a
+	inc de
 	inc hl
 	ld a, [hl]
 	cp $ff ; have we reached the end of the party?
 	jp z, .done
 	ld [wEvoOldSpecies], a
+	push de
 	push hl
 	ld a, [wWhichPokemon]
 	ld c, a
@@ -93,11 +100,12 @@ Evolution_PartyMonLoop: ; loop over party mons
 	jp c, Evolution_PartyMonLoop ; if so, go the next mon
 	jr .doEvolution
 .checkItemEvo
+	ld a, [wIsInBattle] ; are we in battle?
+	and a
 	ld a, [hli]
-	; Bug: Wild encounters can cause stone evolutions without
-	; having any stones available. This was fixed in Yellow.
+	jp nz, .nextEvoEntry1 ; don't evolve if we're in a battle as wcf91 could be holding the last mon sent out
 	ld b, a ; evolution item
-	ld a, [wCurItem] ; same as [wCurPartySpecies]
+	ld a, [wCurItem] ; last item used
 	cp b ; was the evolution item in this entry used?
 	jp nz, .nextEvoEntry1 ; if not, go to the next evolution entry
 .checkLevel
@@ -210,6 +218,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	xor a
 	ld [wMonDataLocation], a
 	call LearnMoveFromLevelUp
+	call LearnEvolutionMoves
 	pop hl
 	predef SetPartyMonTypes
 	ld a, [wIsInBattle]
@@ -320,6 +329,16 @@ Evolution_ReloadTilesetTilePatterns:
 	ret z
 	jp ReloadTilesetTilePatterns
 
+LearnEvolutionMoves:
+	ld a, [wCurEnemyLevel]
+	push af
+	ld a, EVOLUTION_MOVE ; 254
+	ld [wCurEnemyLevel], a
+	call LearnMoveFromLevelUp
+	pop af
+	ld [wCurEnemyLevel], a
+	ret
+
 LearnMoveFromLevelUp:
 	ld hl, EvosMovesPointerTable
 	ld a, [wPokedexNum] ; species
@@ -348,6 +367,11 @@ LearnMoveFromLevelUp:
 	ld a, [hli] ; move ID
 	jr nz, .learnSetLoop
 	ld d, a ; ID of move to learn
+    push hl ; save hl before the call because the function modifies it
+	call .tryToLearn
+	pop hl ; restore hl to continue the loop
+	jr .learnSetLoop
+.tryToLearn
 	ld a, [wMonDataLocation]
 	and a
 	jr nz, .next

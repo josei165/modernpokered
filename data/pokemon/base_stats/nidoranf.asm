@@ -1,7 +1,7 @@
 	db DEX_NIDORAN_F ; pokedex id
 
-	db  55,  47,  52,  41,  40
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, POISON ; type
 	db 235 ; catch rate

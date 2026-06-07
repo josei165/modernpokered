@@ -1,7 +1,7 @@
 	db DEX_PERSIAN ; pokedex id
 
-	db  65,  70,  60, 115,  65
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 90 ; catch rate

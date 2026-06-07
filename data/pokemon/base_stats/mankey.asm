@@ -1,7 +1,7 @@
 	db DEX_MANKEY ; pokedex id
 
-	db  40,  80,  35,  70,  35
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIGHTING, FIGHTING ; type
 	db 190 ; catch rate

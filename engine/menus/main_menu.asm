@@ -566,7 +566,6 @@ DisplayOptionMenu:
 	jp .eraseOldMenuCursor
 .cursorInBattleStyle
 	ld a, [wOptionsBattleStyleCursorX] ; battle style cursor X coordinate
-	xor 1 ^ 10 ; toggle between 1 and 10
 	ld [wOptionsBattleStyleCursorX], a
 	jp .eraseOldMenuCursor
 .pressedLeftInTextSpeed
@@ -604,7 +603,7 @@ BattleAnimationOptionText:
 
 BattleStyleOptionText:
 	db   "BATTLE STYLE"
-	next " SHIFT    SET@"
+	next "          SET@"
 
 OptionMenuCancelText:
 	db "CANCEL@"
@@ -639,7 +638,7 @@ SetOptionsFromCursorPositions:
 	set BIT_BATTLE_SHIFT, d
 	jr .storeOptions
 .battleStyleShift
-	res BIT_BATTLE_SHIFT, d
+	set BIT_BATTLE_SHIFT, d
 .storeOptions
 	ld a, d
 	ld [wOptions], a
@@ -669,7 +668,7 @@ SetCursorPositionsFromOptions:
 	hlcoord 0, 8
 	call .placeUnfilledRightArrow
 	sla c
-	ld a, 1
+	ld a, 10
 	jr nc, .storeBattleStyleCursorX
 	ld a, 10
 .storeBattleStyleCursorX

@@ -1,7 +1,7 @@
 	db DEX_WEEZING ; pokedex id
 
-	db  65,  90, 120,  60,  85
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, POISON ; type
 	db 60 ; catch rate

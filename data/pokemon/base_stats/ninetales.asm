@@ -1,7 +1,7 @@
 	db DEX_NINETALES ; pokedex id
 
-	db  73,  76,  75, 100, 100
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type
 	db 75 ; catch rate

@@ -40,8 +40,8 @@ EvosMovesPointerTable:
 	dw BlastoiseEvosMoves
 	dw PinsirEvosMoves
 	dw TangelaEvosMoves
-	dw MissingNo1FEvosMoves
-	dw MissingNo20EvosMoves
+	dw CrobatEvosMoves
+	dw BellossomEvosMoves
 	dw GrowlitheEvosMoves
 	dw OnixEvosMoves
 	dw FearowEvosMoves
@@ -59,26 +59,26 @@ EvosMovesPointerTable:
 	dw PsyduckEvosMoves
 	dw DrowzeeEvosMoves
 	dw GolemEvosMoves
-	dw MissingNo32EvosMoves
+	dw PolitoedEvosMoves
 	dw MagmarEvosMoves
-	dw MissingNo34EvosMoves
+	dw SlowkingEvosMoves
 	dw ElectabuzzEvosMoves
 	dw MagnetonEvosMoves
 	dw KoffingEvosMoves
-	dw MissingNo38EvosMoves
+	dw SteelixEvosMoves
 	dw MankeyEvosMoves
 	dw SeelEvosMoves
 	dw DiglettEvosMoves
 	dw TaurosEvosMoves
-	dw MissingNo3DEvosMoves
-	dw MissingNo3EEvosMoves
-	dw MissingNo3FEvosMoves
+	dw BlisseyEvosMoves
+	dw KingdraEvosMoves
+	dw ScizorEvosMoves
 	dw FarfetchdEvosMoves
 	dw VenonatEvosMoves
 	dw DragoniteEvosMoves
-	dw MissingNo43EvosMoves
-	dw MissingNo44EvosMoves
-	dw MissingNo45EvosMoves
+	dw EspeonEvosMoves
+	dw UmbreonEvosMoves
+	dw Porygon2EvosMoves
 	dw DoduoEvosMoves
 	dw PoliwagEvosMoves
 	dw JynxEvosMoves
@@ -88,23 +88,23 @@ EvosMovesPointerTable:
 	dw DittoEvosMoves
 	dw MeowthEvosMoves
 	dw KrabbyEvosMoves
-	dw MissingNo4FEvosMoves
-	dw MissingNo50EvosMoves
-	dw MissingNo51EvosMoves
+	dw MagnezoneEvosMoves
+	dw LickilickyEvosMoves
+	dw RhyperiorEvosMoves
 	dw VulpixEvosMoves
 	dw NinetalesEvosMoves
 	dw PikachuEvosMoves
 	dw RaichuEvosMoves
-	dw MissingNo56EvosMoves
-	dw MissingNo57EvosMoves
+	dw TangrowthEvosMoves
+	dw ElectivireEvosMoves
 	dw DratiniEvosMoves
 	dw DragonairEvosMoves
 	dw KabutoEvosMoves
 	dw KabutopsEvosMoves
 	dw HorseaEvosMoves
 	dw SeadraEvosMoves
-	dw MissingNo5EEvosMoves
-	dw MissingNo5FEvosMoves
+	dw MagmortarEvosMoves
+	dw LeafeonEvosMoves
 	dw SandshrewEvosMoves
 	dw SandslashEvosMoves
 	dw OmanyteEvosMoves
@@ -124,38 +124,38 @@ EvosMovesPointerTable:
 	dw WeedleEvosMoves
 	dw KakunaEvosMoves
 	dw BeedrillEvosMoves
-	dw MissingNo73EvosMoves
+	dw GlaceonEvosMoves
 	dw DodrioEvosMoves
 	dw PrimeapeEvosMoves
 	dw DugtrioEvosMoves
 	dw VenomothEvosMoves
 	dw DewgongEvosMoves
-	dw MissingNo79EvosMoves
-	dw MissingNo7AEvosMoves
+	dw PorygonZEvosMoves
+	dw SylveonEvosMoves
 	dw CaterpieEvosMoves
 	dw MetapodEvosMoves
 	dw ButterfreeEvosMoves
 	dw MachampEvosMoves
-	dw MissingNo7FEvosMoves
+	dw RattataAEvosMoves
 	dw GolduckEvosMoves
 	dw HypnoEvosMoves
 	dw GolbatEvosMoves
 	dw MewtwoEvosMoves
 	dw SnorlaxEvosMoves
 	dw MagikarpEvosMoves
-	dw MissingNo86EvosMoves
-	dw MissingNo87EvosMoves
+	dw RaticateAEvosMoves
+	dw RaichuAEvosMoves
 	dw MukEvosMoves
-	dw MissingNo8AEvosMoves
+	dw SandshrewAEvosMoves
 	dw KinglerEvosMoves
 	dw CloysterEvosMoves
-	dw MissingNo8CEvosMoves
+	dw SandslashAEvosMoves
 	dw ElectrodeEvosMoves
 	dw ClefableEvosMoves
 	dw WeezingEvosMoves
 	dw PersianEvosMoves
 	dw MarowakEvosMoves
-	dw MissingNo92EvosMoves
+	dw VulpixAEvosMoves
 	dw HaunterEvosMoves
 	dw AbraEvosMoves
 	dw AlakazamEvosMoves
@@ -165,13 +165,13 @@ EvosMovesPointerTable:
 	dw BulbasaurEvosMoves
 	dw VenusaurEvosMoves
 	dw TentacruelEvosMoves
-	dw MissingNo9CEvosMoves
+	dw NinetalesAEvosMoves
 	dw GoldeenEvosMoves
 	dw SeakingEvosMoves
-	dw MissingNo9FEvosMoves
-	dw MissingNoA0EvosMoves
-	dw MissingNoA1EvosMoves
-	dw MissingNoA2EvosMoves
+	dw DiglettAEvosMoves
+	dw DugtrioAEvosMoves
+	dw MeowthAEvosMoves
+	dw PersianAEvosMoves
 	dw PonytaEvosMoves
 	dw RapidashEvosMoves
 	dw RattataEvosMoves
@@ -181,16 +181,16 @@ EvosMovesPointerTable:
 	dw GeodudeEvosMoves
 	dw PorygonEvosMoves
 	dw AerodactylEvosMoves
-	dw MissingNoACEvosMoves
+	dw GeodudeAEvosMoves
 	dw MagnemiteEvosMoves
-	dw MissingNoAEEvosMoves
-	dw MissingNoAFEvosMoves
+	dw GravelerAEvosMoves
+	dw GolemAEvosMoves
 	dw CharmanderEvosMoves
 	dw SquirtleEvosMoves
 	dw CharmeleonEvosMoves
 	dw WartortleEvosMoves
 	dw CharizardEvosMoves
-	dw MissingNoB5EvosMoves
+	dw GrimerAEvosMoves
 	dw FossilKabutopsEvosMoves
 	dw FossilAerodactylEvosMoves
 	dw MonGhostEvosMoves
@@ -200,6 +200,36 @@ EvosMovesPointerTable:
 	dw BellsproutEvosMoves
 	dw WeepinbellEvosMoves
 	dw VictreebelEvosMoves
+	dw MukAEvosMoves
+	dw ExeggutorAEvosMoves
+	dw MarowakAEvosMoves
+	dw MeowthGEvosMoves
+	dw PerrserkerEvosMoves
+	dw GrowlitheHEvosMoves
+	dw ArcanineHEvosMoves
+	dw PonytaGEvosMoves
+	dw RapidashGEvosMoves
+	dw SlowpokeGEvosMoves
+	dw SlowbroGEvosMoves
+	dw SlowkingGEvosMoves
+	dw FarfetchdGEvosMoves
+	dw SirfetchdEvosMoves
+	dw VoltorbHEvosMoves
+	dw ElectrodeHEvosMoves
+	dw WeezingGEvosMoves
+	dw MrMimeGEvosMoves
+	dw MrRimeEvosMoves
+	dw KleavorEvosMoves
+	dw ArticunoGEvosMoves
+	dw ZapdosGEvosMoves
+	dw MoltresGEvosMoves
+	dw AnnihilapeEvosMoves
+	dw TaurosCEvosMoves
+	dw TaurosBEvosMoves
+	dw TaurosAEvosMoves
+
+
+
 	assert_table_length NUM_POKEMON_INDEXES
 
 RhydonEvosMoves:
@@ -547,13 +577,19 @@ TangelaEvosMoves:
 	db 49, GROWTH
 	db 0
 
-MissingNo1FEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
+CrobatEvosMoves:
+ ; Evolutions
+ 	db 0
+ ; Learnset
+	db 10, SUPERSONIC
+	db 15, BITE
+	db 21, CONFUSE_RAY
+	db 33, WING_ATTACK
+	db 44, HAZE
+	db 55, SLUDGE
+ 	db 0
 
-MissingNo20EvosMoves:
+BellossomEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -761,7 +797,7 @@ GolemEvosMoves:
 	db 43, EXPLOSION
 	db 0
 
-MissingNo32EvosMoves:
+PolitoedEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -779,7 +815,7 @@ MagmarEvosMoves:
 	db 55, FLAMETHROWER
 	db 0
 
-MissingNo34EvosMoves:
+SlowkingEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -820,7 +856,7 @@ KoffingEvosMoves:
 	db 48, EXPLOSION
 	db 0
 
-MissingNo38EvosMoves:
+SteelixEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -873,19 +909,19 @@ TaurosEvosMoves:
 	db 51, TAKE_DOWN
 	db 0
 
-MissingNo3DEvosMoves:
+BlisseyEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo3EEvosMoves:
+KingdraEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo3FEvosMoves:
+ScizorEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -926,19 +962,19 @@ DragoniteEvosMoves:
 	db 60, HYPER_BEAM
 	db 0
 
-MissingNo43EvosMoves:
+EspeonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo44EvosMoves:
+UmbreonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo45EvosMoves:
+Porygon2EvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1039,19 +1075,19 @@ KrabbyEvosMoves:
 	db 40, HARDEN
 	db 0
 
-MissingNo4FEvosMoves:
+MagnezoneEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo50EvosMoves:
+LickilickyEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo51EvosMoves:
+RhyperiorEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1093,13 +1129,13 @@ RaichuEvosMoves:
 ; Learnset
 	db 0
 
-MissingNo56EvosMoves:
+TangrowthEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo57EvosMoves:
+ElectivireEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1173,13 +1209,13 @@ SeadraEvosMoves:
 	db 52, HYDRO_PUMP
 	db 0
 
-MissingNo5EEvosMoves:
+MagmortarEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo5FEvosMoves:
+LeafeonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1399,7 +1435,7 @@ BeedrillEvosMoves:
 	db 35, AGILITY
 	db 0
 
-MissingNo73EvosMoves:
+GlaceonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1462,13 +1498,13 @@ DewgongEvosMoves:
 	db 56, ICE_BEAM
 	db 0
 
-MissingNo79EvosMoves:
+PorygonZEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo7AEvosMoves:
+SylveonEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1512,7 +1548,7 @@ MachampEvosMoves:
 	db 52, SUBMISSION
 	db 0
 
-MissingNo7FEvosMoves:
+RattataAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1543,7 +1579,7 @@ HypnoEvosMoves:
 
 GolbatEvosMoves:
 ; Evolutions
-	db 0
+	db EVOLVE_LEVEL, 32, CROBAT
 ; Learnset
 	db 10, SUPERSONIC
 	db 15, BITE
@@ -1581,13 +1617,13 @@ MagikarpEvosMoves:
 	db 15, TACKLE
 	db 0
 
-MissingNo86EvosMoves:
+RaticateAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNo87EvosMoves:
+RaichuAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1605,7 +1641,7 @@ MukEvosMoves:
 	db 60, ACID_ARMOR
 	db 0
 
-MissingNo8AEvosMoves:
+SandshrewAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1629,7 +1665,7 @@ CloysterEvosMoves:
 	db 50, SPIKE_CANNON
 	db 0
 
-MissingNo8CEvosMoves:
+SandslashAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1685,7 +1721,7 @@ MarowakEvosMoves:
 	db 55, RAGE
 	db 0
 
-MissingNo92EvosMoves:
+VulpixAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1791,7 +1827,7 @@ TentacruelEvosMoves:
 	db 50, HYDRO_PUMP
 	db 0
 
-MissingNo9CEvosMoves:
+NinetalesAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1822,25 +1858,25 @@ SeakingEvosMoves:
 	db 54, AGILITY
 	db 0
 
-MissingNo9FEvosMoves:
+DiglettAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNoA0EvosMoves:
+DugtrioAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNoA1EvosMoves:
+MeowthAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNoA2EvosMoves:
+PersianAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1951,7 +1987,7 @@ AerodactylEvosMoves:
 	db 54, HYPER_BEAM
 	db 0
 
-MissingNoACEvosMoves:
+GeodudeAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -1970,13 +2006,13 @@ MagnemiteEvosMoves:
 	db 47, SCREECH
 	db 0
 
-MissingNoAEEvosMoves:
+GravelerAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-MissingNoAFEvosMoves:
+GolemAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -2046,7 +2082,7 @@ CharizardEvosMoves:
 	db 55, FIRE_SPIN
 	db 0
 
-MissingNoB5EvosMoves:
+GrimerAEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
@@ -2140,4 +2176,166 @@ VictreebelEvosMoves:
 	db 13, WRAP
 	db 15, POISONPOWDER
 	db 18, SLEEP_POWDER
+	db 0
+
+MukAEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+ExeggutorAEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+MarowakAEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+MeowthGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+PerrserkerEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+GrowlitheHEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+ArcanineHEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+PonytaGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+RapidashGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+SlowpokeGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+SlowbroGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+SlowkingGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+FarfetchdGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+SirfetchdEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+VoltorbHEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+ElectrodeHEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+WeezingGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+MrMimeGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+MrRimeEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+KleavorEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+ArticunoGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+ZapdosGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+MoltresGEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+AnnihilapeEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+TaurosCEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+TaurosBEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+TaurosAEvosMoves:
+; Evolutions
+	db 0
+; Learnset
 	db 0

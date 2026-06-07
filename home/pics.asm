@@ -16,7 +16,7 @@ UncompressMonSprite::
 ; $4A ≤ index < $74:       bank $B ("Pics 3")
 ; $74 ≤ index < $99:       bank $C ("Pics 4")
 ; $99 ≤ index:             bank $D ("Pics 5")
-	ld a, [wCurPartySpecies]
+ld a, [wCurPartySpecies]
 	ld b, a
 	cp MEW
 	ld a, BANK(MewPicFront)
@@ -30,18 +30,26 @@ UncompressMonSprite::
 	ld a, BANK("Pics 1")
 	jr c, .GotBank
 	ld a, b
-	cp MOLTRES + 1
+	cp KINGDRA + 1
 	ld a, BANK("Pics 2")
 	jr c, .GotBank
 	ld a, b
-	cp BEEDRILL + 2
+	cp LEAFEON
 	ld a, BANK("Pics 3")
 	jr c, .GotBank
 	ld a, b
-	cp STARMIE + 1
+	cp GOLBAT
 	ld a, BANK("Pics 4")
 	jr c, .GotBank
+	ld a, b
+	cp DUGTRIOA
 	ld a, BANK("Pics 5")
+	jr c, .GotBank
+	ld a, b
+	cp GROWLITHEH
+	ld a, BANK("Pics 6")
+	jr c, .GotBank
+	ld a, BANK("Pics 7")
 .GotBank
 	jp UncompressSpriteData
 

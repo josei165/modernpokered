@@ -1,7 +1,7 @@
 	db DEX_GOLBAT ; pokedex id
 
-	db  75,  80,  70,  90,  75
-	;   hp  atk  def  spd  spc
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, FLYING ; type
 	db 90 ; catch rate

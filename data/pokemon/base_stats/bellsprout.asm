@@ -1,7 +1,7 @@
 	db DEX_BELLSPROUT ; pokedex id
 
-	db  50,  75,  35,  40,  70
-	;   hp  atk  def  spd  spc
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
 	db 255 ; catch rate

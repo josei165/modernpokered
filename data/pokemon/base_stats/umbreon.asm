@@ -1,0 +1,25 @@
+	db DEX_UMBREON     ; pokedex id
+
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
+
+	db WATER, WATER ; type
+	db 45 ; catch rate
+	db 210 ; base exp
+
+	INCBIN "gfx/pokemon/front/umbreon.pic", 0, 1 ; sprite dimensions
+	dw UmbreonPicFront, UmbreonPicBack
+
+	db TACKLE, TAIL_WHIP, BUBBLE, WATER_GUN ; level 1 learnset
+	db GROWTH_MEDIUM_SLOW ; growth rate
+
+	; tm/hm learnset
+	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
+	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
+	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
+	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
+	     REFLECT,      BIDE,         SKULL_BASH,   REST,         SUBSTITUTE,   \
+	     SURF,         STRENGTH
+	; end
+
+	db 0 ; padding

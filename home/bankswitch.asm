@@ -33,3 +33,7 @@ Bankswitch::
 	ldh [hLoadedROMBank], a
 	ld [rROMB], a
 	ret
+SetCurBank::
+	ldh [hLoadedROMBank], a
+	ld [rROMB], a
+	ret

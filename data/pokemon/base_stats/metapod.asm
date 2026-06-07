@@ -1,7 +1,7 @@
 	db DEX_METAPOD ; pokedex id
 
-	db  50,  20,  55,  30,  25
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, BUG ; type
 	db 120 ; catch rate

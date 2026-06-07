@@ -1,7 +1,7 @@
 	db DEX_EKANS ; pokedex id
 
-	db  35,  60,  44,  55,  40
-	;   hp  atk  def  spd  spc
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, POISON ; type
 	db 255 ; catch rate

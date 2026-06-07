@@ -1,7 +1,7 @@
 	db DEX_GLOOM ; pokedex id
 
-	db  60,  65,  70,  40,  85
-	;   hp  atk  def  spd  spc
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
 	db 120 ; catch rate

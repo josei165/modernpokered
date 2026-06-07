@@ -67,7 +67,8 @@ ItemPrices::
 	bcd3 500   ; X_ATTACK
 	bcd3 550   ; X_DEFEND
 	bcd3 350   ; X_SPEED
-	bcd3 350   ; X_SPECIAL
+	bcd3 350   ; X_SP_ATK
+	bcd3 350   ; X_SP_DEF
 	bcd3 0     ; COIN_CASE
 	bcd3 0     ; OAKS_PARCEL
 	bcd3 0     ; ITEMFINDER

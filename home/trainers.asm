@@ -145,6 +145,10 @@ ENDC
 .trainerEngaging
 	ld hl, wStatusFlags7
 	set BIT_TRAINER_BATTLE, [hl]
+	ld hl, wStatusFlags5
+    res BIT_SCRIPTED_NPC_MOVEMENT, [hl]
+    ld hl, wStatusFlags7
+    res BIT_TRAINER_BATTLE, [hl]
 	ld [wEmotionBubbleSpriteIndex], a
 	xor a ; EXCLAMATION_BUBBLE
 	ld [wWhichEmotionBubble], a
@@ -160,6 +164,9 @@ ENDC
 
 ; display the before battle text after the enemy trainer has walked up to the player's sprite
 DisplayEnemyTrainerTextAndStartBattle::
+	ld a, [wStatusFlags7]
+    bit BIT_TRAINER_BATTLE, [hl]  
+    jp nz, EndTrainerBattleWhiteout
 	ld a, [wStatusFlags5]
 	and 1 << BIT_SCRIPTED_NPC_MOVEMENT
 	ret nz ; return if the enemy trainer hasn't finished walking to the player's sprite
@@ -192,16 +199,19 @@ EndTrainerBattle::
 	res BIT_SEEN_BY_TRAINER, [hl] ; player is no longer engaged by any trainer
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, ResetButtonPressedAndMapScript
+	jr z, EndTrainerBattleWhiteout
 	ld a, $2
 	call ReadTrainerHeaderInfo
 	ld a, [wTrainerHeaderFlagBit]
 	ld c, a
 	ld b, FLAG_SET
 	call TrainerFlagAction   ; flag trainer as fought
-	ld a, [wEnemyMonOrTrainerClass]
-	cp OPP_ID_OFFSET
-	jr nc, .skipRemoveSprite ; test if trainer was fought (in that case skip removing the corresponding sprite)
+	ld a, [wWasTrainerBattle]
+	and a
+	jr nz, .skipRemoveSprite ; test if trainer was fought (in that case skip removing the corresponding sprite)
+	ld a, [wCurMap]
+	cp POKEMON_TOWER_7F
+	jr z, .skipRemoveSprite ; the two 7F scripts call EndTrainerBattle manually after wIsTrainerBattle has been unset
 	ld hl, wToggleableObjectList
 	ld de, $2
 	ld a, [wSpriteIndex]
@@ -211,18 +221,28 @@ EndTrainerBattle::
 	ld [wToggleableObjectIndex], a ; load corresponding toggleable object index and remove it
 	predef HideObject
 .skipRemoveSprite
+	xor a
+	ld [wWasTrainerBattle], a
 	ld hl, wStatusFlags5
 	bit BIT_UNKNOWN_5_4, [hl]
 	res BIT_UNKNOWN_5_4, [hl]
 	ret nz
 
-ResetButtonPressedAndMapScript::
+EndTrainerBattleWhiteout::
 	xor a
+	ld [wIsTrainerBattle], a
+	ld [wWasTrainerBattle], a
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
 	ldh [hJoyPressed], a
 	ldh [hJoyReleased], a
 	ld [wCurMapScript], a               ; reset battle status
+	ld hl, wStatusFlags5
+    res BIT_SCRIPTED_NPC_MOVEMENT, [hl]
+    ld hl, wStatusFlags7
+    set BIT_TRAINER_BATTLE, [hl]
+    ld hl, wMiscFlags
+    res BIT_SEEN_BY_TRAINER, [hl]
 	ret
 
 ; calls TrainerWalkUpToPlayer
@@ -234,9 +254,10 @@ InitBattleEnemyParameters::
 	ld a, [wEngagedTrainerClass]
 	ld [wCurOpponent], a
 	ld [wEnemyMonOrTrainerClass], a
-	cp OPP_ID_OFFSET
+	ld a, [wIsTrainerBattle]
+	and a
 	ld a, [wEngagedTrainerSet]
-	jr c, .noTrainer
+	jr z, .noTrainer
 	ld [wTrainerNo], a
 	ret
 .noTrainer
@@ -335,7 +356,17 @@ EngageMapTrainer::
 	ld a, [hli]    ; load trainer class
 	ld [wEngagedTrainerClass], a
 	ld a, [hl]     ; load trainer mon set
+	bit 7, a
+	jr nz, .pokemon
 	ld [wEngagedTrainerSet], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	jp PlayTrainerMusic
+.pokemon
+	and $7F
+	ld [wEngagedTrainerSet], a
+	xor a
+	ld [wIsTrainerBattle], a
 	jp PlayTrainerMusic
 
 PrintEndBattleText::

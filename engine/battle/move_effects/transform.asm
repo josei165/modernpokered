@@ -94,8 +94,8 @@ TransformEffect_:
 	inc de
 	inc de
 	inc de
-; Attack, Defense, Speed, and Special stats
-	ld bc, (NUM_STATS - 1) * 2
+; Attack, Defense, Speed, Spcl.Atk, and Spcl.Def stats
+	ld bc, $a
 	call CopyData
 	ld bc, wBattleMonMoves - wBattleMonPP
 	add hl, bc ; ld hl, wBattleMonMoves
@@ -142,7 +142,7 @@ TransformEffect_:
 	ld l, e
 	pop de
 .gotStatsOrModsToCopy
-	ld bc, (NUM_STATS - 1) * 2
+	ld bc, $a
 	jp CopyData
 
 .failed

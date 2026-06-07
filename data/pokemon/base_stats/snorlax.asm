@@ -1,7 +1,7 @@
 	db DEX_SNORLAX ; pokedex id
 
-	db 160, 110,  65,  30,  65
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 25 ; catch rate

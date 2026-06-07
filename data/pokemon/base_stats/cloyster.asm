@@ -1,7 +1,7 @@
 	db DEX_CLOYSTER ; pokedex id
 
-	db  50,  95, 180,  70,  85
-	;   hp  atk  def  spd  spc
+	db   55,   50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, ICE ; type
 	db 60 ; catch rate

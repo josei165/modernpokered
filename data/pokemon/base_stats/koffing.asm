@@ -1,7 +1,7 @@
 	db DEX_KOFFING ; pokedex id
 
-	db  40,  65,  95,  35,  60
-	;   hp  atk  def  spd  spc
+	db  55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdfc
 
 	db POISON, POISON ; type
 	db 190 ; catch rate

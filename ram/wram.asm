@@ -520,7 +520,7 @@ ENDU
 wMiscBattleDataEnd::
 ENDU
 
-; This union spans 39 bytes.
+; This union spans 45 bytes.
 UNION
 wInGameTradeGiveMonSpecies:: db
 wInGameTradeTextPointerTablePointer:: dw
@@ -536,7 +536,8 @@ wPlayerMonUnmodifiedMaxHP:: dw
 wPlayerMonUnmodifiedAttack:: dw
 wPlayerMonUnmodifiedDefense:: dw
 wPlayerMonUnmodifiedSpeed:: dw
-wPlayerMonUnmodifiedSpecial:: dw
+wPlayerMonUnmodifiedSpclAtk:: dw
+wPlayerMonUnmodifiedSpclDef:: dw
 
 ; stat modifiers for the player's current pokemon
 ; value can range from 1 - 13 ($1 to $D)
@@ -545,7 +546,8 @@ wPlayerMonStatMods::
 wPlayerMonAttackMod:: db
 wPlayerMonDefenseMod:: db
 wPlayerMonSpeedMod:: db
-wPlayerMonSpecialMod:: db
+wPlayerMonSpclAtkMod:: db
+wPlayerMonSpclDefMod:: db
 wPlayerMonAccuracyMod:: db
 wPlayerMonEvasionMod:: db
 	ds 2
@@ -558,7 +560,8 @@ wEnemyMonUnmodifiedMaxHP:: dw
 wEnemyMonUnmodifiedAttack:: dw
 wEnemyMonUnmodifiedDefense:: dw
 wEnemyMonUnmodifiedSpeed:: dw
-wEnemyMonUnmodifiedSpecial:: dw
+wEnemyMonUnmodifiedSpclAtk:: dw
+wEnemyMonUnmodifiedSpclDef:: dw
 
 ; stat modifiers for the enemy's current pokemon
 ; value can range from 1 - 13 ($1 to $D)
@@ -719,6 +722,7 @@ wSlotMachineWheel2TopTile:: db
 wSlotMachineWheel3BottomTile:: db
 wSlotMachineWheel3MiddleTile:: db
 wSlotMachineWheel3TopTile:: db
+wStartBattleLevels:: ds PARTY_LENGTH ; which is 6 bytes
 wPayoutCoins:: dw
 ; These flags are set randomly and control when the wheels stop.
 ; bit 6: allow the player to win in general
@@ -1531,7 +1535,8 @@ wMonHBaseHP:: db
 wMonHBaseAttack:: db
 wMonHBaseDefense:: db
 wMonHBaseSpeed:: db
-wMonHBaseSpecial:: db
+wMonHBaseSpclAtk:: db
+wMonHBaseSpclDef:: db
 wMonHTypes::
 wMonHType1:: db
 wMonHType2:: db
@@ -1708,7 +1713,9 @@ wPseudoItemID:: db
 
 wUnusedAlreadyOwnedFlag:: db
 
-	ds 2
+wIsTrainerBattle:: db
+
+wWasTrainerBattle:: db
 
 wEvoStoneItemID:: db
 

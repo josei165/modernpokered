@@ -1,0 +1,24 @@
+	db DEX_RATTATAA       ; pokedex id
+
+	db   55,  50,  45, 120, 135,  85 ; ALAKAZAM (+10 sdf for modern stats)
+	;   hp  atk  def  spd  sat  sdf
+
+	db WATER, FLYING ; type
+	db 45 ; catch rate
+	db 214 ; base exp
+
+	INCBIN "gfx/pokemon/front/rattataa.pic", 0, 1 ; sprite dimensions
+	dw RattataaPicFront, RattataaPicBack
+
+	db BITE, DRAGON_RAGE, LEER, HYDRO_PUMP ; level 1 learnset
+	db GROWTH_SLOW ; growth rate
+
+	; tm/hm learnset
+	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
+	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
+	     DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
+	     REFLECT,      BIDE,         FIRE_BLAST,   SKULL_BASH,   REST,         \
+	     SUBSTITUTE,   SURF,         STRENGTH
+	; end
+
+	db 0 ; padding

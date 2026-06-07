@@ -72,16 +72,13 @@ ROMX $9
 	"Pics 1"
 	"Battle Engine 3"
 ROMX $A
-	"Pics 2"
 	"Battle Engine 4"
 ROMX $B
-	"Pics 3"
 	"Battle Engine 5"
 ROMX $C
 	"Pics 4"
 	"Battle Engine 6"
 ROMX $D
-	"Pics 5"
 	"Slot Machines"
 ROMX $E
 	"Battle Engine 7"
@@ -177,6 +174,22 @@ ROMX $2B
 	"Pokédex Text"
 ROMX $2C
 	"Move Names"
+ROMX $2D
+	"Pokemon Data"
+ROMX $2E
+	"Pokédex Text 2"
+ROMX $2F
+	"Pics 2"
+ROMX $30
+	"Pics 3"
+ROMX $31
+	"Pics 5"
+ROMX $32
+	"Pics 6"
+ROMX $33
+	"Pics 7"
+
+
 WRAM0
 	"Audio RAM"
 	org $c100

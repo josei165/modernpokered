@@ -155,5 +155,69 @@
 	const DEX_DRAGONITE  ; 149
 	const DEX_MEWTWO     ; 150
 	const DEX_MEW        ; 151
+	const DEX_CROBAT     ; 152
+	const DEX_BELLOSSOM  ; 153
+	const DEX_POLITOED   ; 154
+	const DEX_SLOWKING   ; 155
+	const DEX_STEELIX    ; 156
+	const DEX_BLISSEY    ; 157
+	const DEX_KINGDRA    ; 158
+	const DEX_SCIZOR     ; 159
+	const DEX_ESPEON     ; 160
+	const DEX_UMBREON    ; 161
+	const DEX_PORYGON2   ; 162
+	const DEX_MAGNEZONE  ; 163
+	const DEX_LICKILICKY ; 164
+	const DEX_RHYPERIOR  ; 165
+	const DEX_TANGROWTH  ; 166
+	const DEX_ELECTIVIRE ; 167
+	const DEX_MAGMORTAR  ; 168
+	const DEX_LEAFEON    ; 169
+	const DEX_GLACEON    ; 170
+	const DEX_PORYGONZ   ; 171
+	const DEX_SYLVEON    ; 172
+	const DEX_RATTATAA   ; 173
+	const DEX_RATICATEA  ; 174
+	const DEX_RAICHUA    ; 175
+	const DEX_SANDSHREWA ; 176
+	const DEX_SANDSLASHA ; 177
+	const DEX_VULPIXA    ; 178
+	const DEX_NINETALESA ; 179
+	const DEX_DIGLETTA   ; 180
+	const DEX_DUGTRIOA   ; 181
+	const DEX_MEOWTHA    ; 182
+	const DEX_PERSIANA   ; 183
+	const DEX_GEODUDEA   ; 184
+	const DEX_GRAVELERA  ; 185
+	const DEX_GOLEMA     ; 186
+	const DEX_GRIMERA    ; 187
+	const DEX_MUKA       ; 188
+	const DEX_EXEGGUTORA ; 189
+	const DEX_MAROWAKA   ; 190
+	const DEX_MEOWTHG    ; 191
+	const DEX_PERRSERKER ; 192
+	const DEX_GROWLITHEH ; 193
+	const DEX_ARCANINEH  ; 194
+	const DEX_PONYTAG    ; 195
+	const DEX_RAPIDASHG  ; 196
+	const DEX_SLOWPOKEG  ; 197
+	const DEX_SLOWBROG   ; 198
+	const DEX_SLOWKINGG  ; 199
+	const DEX_FARFETCHDG ; 200
+	const DEX_SIRFETCHD  ; 201
+	const DEX_VOLTORBH   ; 202
+	const DEX_ELECTRODEH ; 203
+	const DEX_WEEZINGG   ; 204
+	const DEX_MRMIMEG    ; 205
+	const DEX_MRRIME     ; 206
+	const DEX_KLEAVOR    ; 207
+	const DEX_ARTICUNOG  ; 208
+	const DEX_ZAPDOSG    ; 209
+	const DEX_MOLTRESG   ; 210
+	const DEX_ANNIHILAPE ; 211
+	const DEX_TAUROSC    ; 212
+	const DEX_TAUROSB    ; 213
+	const DEX_TAUROSA    ; 214
+
 
 DEF NUM_POKEMON EQU const_value - 1
