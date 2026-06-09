@@ -26,9 +26,9 @@ Route6_TextPointers:
 Route6TrainerHeaders:
 	def_trainers
 Route6TrainerHeader0:
-	trainer EVENT_BEAT_ROUTE_6_TRAINER_0, 0, Route6CooltrainerM1BattleText, Route6CooltrainerM1EndBattleText, Route6CooltrainerAfterBattleText
+	trainer EVENT_BEAT_ROUTE_6_TRAINER_0, 1, Route6CooltrainerM1BattleText, Route6CooltrainerM1EndBattleText, Route6CooltrainerAfterBattleText
 Route6TrainerHeader1:
-	trainer EVENT_BEAT_ROUTE_6_TRAINER_1, 0, Route6CooltrainerF1BattleText, Route6CooltrainerF1EndBattleText, Route6CooltrainerAfterBattleText
+	trainer EVENT_BEAT_ROUTE_6_TRAINER_1, 1, Route6CooltrainerF1BattleText, Route6CooltrainerF1EndBattleText, Route6CooltrainerAfterBattleText
 Route6TrainerHeader2:
 	trainer EVENT_BEAT_ROUTE_6_TRAINER_2, 4, Route6Youngster1BattleText, Route6Youngster1EndBattleText, Route6Youngster1AfterBattleText
 Route6TrainerHeader3:

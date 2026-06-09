@@ -3,7 +3,7 @@ ItemPrices::
 	bcd3 0     ; MASTER_BALL
 	bcd3 1200  ; ULTRA_BALL
 	bcd3 600   ; GREAT_BALL
-	bcd3 200   ; POKE_BALL
+	bcd3 10   ; POKE_BALL
 	bcd3 0     ; TOWN_MAP
 	bcd3 0     ; BICYCLE
 	bcd3 0     ; SURFBOARD
@@ -15,7 +15,7 @@ ItemPrices::
 	bcd3 250   ; ICE_HEAL
 	bcd3 200   ; AWAKENING
 	bcd3 200   ; PARLYZ_HEAL
-	bcd3 3000  ; FULL_RESTORE
+	bcd3 10  ; FULL_RESTORE
 	bcd3 2500  ; MAX_POTION
 	bcd3 1500  ; HYPER_POTION
 	bcd3 700   ; SUPER_POTION
@@ -39,7 +39,7 @@ ItemPrices::
 	bcd3 9800  ; IRON
 	bcd3 9800  ; CARBOS
 	bcd3 9800  ; CALCIUM
-	bcd3 4800  ; RARE_CANDY
+	bcd3 10  ; RARE_CANDY
 	bcd3 0     ; DOME_FOSSIL
 	bcd3 0     ; HELIX_FOSSIL
 	bcd3 0     ; SECRET_KEY
@@ -53,10 +53,10 @@ ItemPrices::
 	bcd3 1000  ; POKE_DOLL
 	bcd3 600   ; FULL_HEAL
 	bcd3 1500  ; REVIVE
-	bcd3 4000  ; MAX_REVIVE
+	bcd3 10  ; MAX_REVIVE
 	bcd3 700   ; GUARD_SPEC
 	bcd3 500   ; SUPER_REPEL
-	bcd3 700   ; MAX_REPEL
+	bcd3 10   ; MAX_REPEL
 	bcd3 650   ; DIRE_HIT
 	bcd3 10    ; COIN
 	bcd3 200   ; FRESH_WATER
@@ -83,7 +83,7 @@ ItemPrices::
 	bcd3 0     ; ETHER
 	bcd3 0     ; MAX_ETHER
 	bcd3 0     ; ELIXER
-	bcd3 0     ; MAX_ELIXER
+	bcd3 10     ; MAX_ELIXER
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

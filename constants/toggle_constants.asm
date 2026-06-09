@@ -58,7 +58,7 @@ ENDM
 	const TOGGLE_ROUTE_4_ITEM                  ; 1B X
 
 	toggle_consts_for ROUTE_9
-	const TOGGLE_ROUTE_9_ITEM                  ; 1C X
+	const TOGGLE_ROUTE9_GUARD                  ; 1C, replaced teleport tm to not run into id problems
 
 	toggle_consts_for ROUTE_12
 	const TOGGLE_ROUTE_12_SNORLAX              ; 1D
@@ -390,5 +390,11 @@ ENDM
 	const TOGGLE_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E1
 	const TOGGLE_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; E2
 	const TOGGLE_ARTICUNO                      ; E3 X
+
+	toggle_consts_for VIRIDIAN_FOREST_SOUTH_GATE
+	const TOGGLE_VIRIDIAN_FOREST_SOUTH_GATE_OAKS_AIDE ; E4
+
+	toggle_consts_for ROUTE_5
+	const TOGGLE_ROUTE5_UNDERGROUND_GUARD, ON ; E5
 
 DEF NUM_TOGGLEABLE_OBJECTS EQU const_value

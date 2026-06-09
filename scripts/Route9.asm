@@ -1,10 +1,19 @@
 Route9_Script:
 	call EnableAutoTextBoxDrawing
+	call Route9GuardCheck
 	ld hl, Route9TrainerHeaders
 	ld de, Route9_ScriptPointers
 	ld a, [wRoute9CurScript]
 	call ExecuteCurMapScriptInTable
 	ld [wRoute9CurScript], a
+	ret
+
+Route9GuardCheck:
+	CheckEvent EVENT_BEAT_LT_SURGE
+	ret z
+	ld a, TOGGLE_ROUTE9_GUARD
+	ld [wToggleableObjectIndex], a
+	predef HideObject
 	ret
 
 Route9_ScriptPointers:
@@ -25,6 +34,7 @@ Route9_TextPointers:
 	dw_const Route9Hiker3Text,        TEXT_ROUTE9_HIKER3
 	dw_const Route9Youngster2Text,    TEXT_ROUTE9_YOUNGSTER2
 	dw_const PickUpItemText,          TEXT_ROUTE9_TM_TELEPORT
+	dw_const Route9GuardText, TEXT_ROUTE9_GUARD
 	dw_const Route9SignText,          TEXT_ROUTE9_SIGN
 
 Route9TrainerHeaders:
@@ -206,4 +216,8 @@ Route9Youngster2AfterBattleText:
 
 Route9SignText:
 	text_far _Route9SignText
+	text_end
+
+Route9GuardText:
+	text_far _Route9GuardText
 	text_end

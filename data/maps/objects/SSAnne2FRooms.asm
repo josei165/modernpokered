@@ -17,26 +17,29 @@ SSAnne2FRooms_Object:
 	db $c ; border block
 
 	def_warp_events
-	warp_event  2,  5, SS_ANNE_2F, 1
-	warp_event  3,  5, SS_ANNE_2F, 1
-	warp_event 12,  5, SS_ANNE_2F, 2
-	warp_event 13,  5, SS_ANNE_2F, 2
-	warp_event 22,  5, SS_ANNE_2F, 3
-	warp_event 23,  5, SS_ANNE_2F, 3
-	warp_event  2, 15, SS_ANNE_2F, 4
-	warp_event  3, 15, SS_ANNE_2F, 4
-	warp_event 12, 15, SS_ANNE_2F, 5
-	warp_event 13, 15, SS_ANNE_2F, 5
+	warp_event 15,  7, SS_ANNE_2F, 1
+	warp_event 16,  7, SS_ANNE_2F, 1
+	warp_event 17,  7, SS_ANNE_2F, 2
+	warp_event 18,  7, SS_ANNE_2F, 2
+	warp_event 19,  7, SS_ANNE_2F, 3
+	warp_event 20,  7, SS_ANNE_2F, 3
+	warp_event 15, 13, SS_ANNE_2F, 4
+	warp_event 16, 13, SS_ANNE_2F, 4
+	warp_event 15, 15, SS_ANNE_2F, 5
+	warp_event 16, 15, SS_ANNE_2F, 5
 	warp_event 22, 15, SS_ANNE_2F, 6
 	warp_event 23, 15, SS_ANNE_2F, 6
+	warp_event  0,  4, SS_ANNE_BOW, 3
+	warp_event  1, 15, SS_ANNE_1F_ROOMS, 7
+	warp_event 20, 14, SS_ANNE_1F, 12
 
 	def_bg_events
 
 	def_object_events
-	object_event 10,  2, SPRITE_GENTLEMAN, STAY, RIGHT, TEXT_SSANNE2FROOMS_GENTLEMAN1, OPP_GENTLEMAN, 3
-	object_event 13,  4, SPRITE_FISHER, STAY, LEFT, TEXT_SSANNE2FROOMS_FISHER, OPP_FISHER, 1
-	object_event  0, 14, SPRITE_GENTLEMAN, STAY, RIGHT, TEXT_SSANNE2FROOMS_GENTLEMAN2, OPP_GENTLEMAN, 5
-	object_event  2, 11, SPRITE_COOLTRAINER_F, STAY, DOWN, TEXT_SSANNE2FROOMS_COOLTRAINER_F, OPP_LASS, 12
+	object_event 10,  5, SPRITE_GENTLEMAN, STAY, RIGHT, TEXT_SSANNE2FROOMS_GENTLEMAN1, OPP_GENTLEMAN, 3
+	object_event 13,  6, SPRITE_FISHER, STAY, LEFT, TEXT_SSANNE2FROOMS_FISHER, OPP_FISHER, 1
+	object_event  4, 14, SPRITE_GENTLEMAN, STAY, DOWN, TEXT_SSANNE2FROOMS_GENTLEMAN2, OPP_GENTLEMAN, 5
+	object_event  8, 14, SPRITE_COOLTRAINER_F, STAY, DOWN, TEXT_SSANNE2FROOMS_COOLTRAINER_F, OPP_LASS, 12
 	object_event  1,  2, SPRITE_GENTLEMAN, STAY, DOWN, TEXT_SSANNE2FROOMS_GENTLEMAN3
 	object_event 12,  1, SPRITE_POKE_BALL, STAY, NONE, TEXT_SSANNE2FROOMS_MAX_ETHER, MAX_ETHER
 	object_event 21,  2, SPRITE_GENTLEMAN, STAY, DOWN, TEXT_SSANNE2FROOMS_GENTLEMAN4

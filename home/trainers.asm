@@ -146,9 +146,8 @@ ENDC
 	ld hl, wStatusFlags7
 	set BIT_TRAINER_BATTLE, [hl]
 	ld hl, wStatusFlags5
-    res BIT_SCRIPTED_NPC_MOVEMENT, [hl]
-    ld hl, wStatusFlags7
-    res BIT_TRAINER_BATTLE, [hl]
+	res 0, [hl]
+	res 3, [hl]
 	ld [wEmotionBubbleSpriteIndex], a
 	xor a ; EXCLAMATION_BUBBLE
 	ld [wWhichEmotionBubble], a
@@ -164,9 +163,9 @@ ENDC
 
 ; display the before battle text after the enemy trainer has walked up to the player's sprite
 DisplayEnemyTrainerTextAndStartBattle::
-	ld a, [wStatusFlags7]
-    bit BIT_TRAINER_BATTLE, [hl]  
-    jp nz, EndTrainerBattleWhiteout
+	ld a, [wStatusFlags5]
+	and $8
+	jp nz, EndTrainerBattleWhiteout
 	ld a, [wStatusFlags5]
 	and 1 << BIT_SCRIPTED_NPC_MOVEMENT
 	ret nz ; return if the enemy trainer hasn't finished walking to the player's sprite
@@ -236,13 +235,12 @@ EndTrainerBattleWhiteout::
 	ldh [hJoyHeld], a
 	ldh [hJoyPressed], a
 	ldh [hJoyReleased], a
-	ld [wCurMapScript], a               ; reset battle status
+	ld [wCurMapScript], a               ; reset battle status_ailments
 	ld hl, wStatusFlags5
-    res BIT_SCRIPTED_NPC_MOVEMENT, [hl]
-    ld hl, wStatusFlags7
-    set BIT_TRAINER_BATTLE, [hl]
-    ld hl, wMiscFlags
-    res BIT_SEEN_BY_TRAINER, [hl]
+	res 0, [hl]
+	set 3, [hl]
+	ld hl, wMiscFlags
+	res 0, [hl]
 	ret
 
 ; calls TrainerWalkUpToPlayer

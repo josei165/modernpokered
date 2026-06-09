@@ -142,6 +142,8 @@ DisplayListMenuIDLoop::
 .skipGettingQuantity
 	ld a, [wCurItem]
 	ld [wNameListIndex], a
+	ld a, ITEM_NAME
+	ld [wNameListType], a
 	ld a, BANK(ItemNames)
 	ld [wPredefBank], a
 	call GetName

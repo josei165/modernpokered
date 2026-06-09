@@ -11,3 +11,12 @@ _ViridianForestSouthGateLittleGirlText::
 	cont "bite is wicked!"
 	cont "Did you get one?"
 	done
+
+_ViridianForestSouthGateOaksAideText::
+	text "OAK's aide: Prof."
+	line "OAK asked me to"
+	cont "make sure you're"
+	cont "ready for the"
+	cont "forest. Have you"
+	cont "trained enough?"
+	done

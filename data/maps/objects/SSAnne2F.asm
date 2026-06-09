@@ -6,11 +6,11 @@ SSAnne2F_Object:
 	db $c ; border block
 
 	def_warp_events
-	warp_event  9, 11, SS_ANNE_2F_ROOMS, 1
-	warp_event 13, 11, SS_ANNE_2F_ROOMS, 3
-	warp_event 17, 11, SS_ANNE_2F_ROOMS, 5
-	warp_event 21, 11, SS_ANNE_2F_ROOMS, 7
-	warp_event 25, 11, SS_ANNE_2F_ROOMS, 9
+	warp_event  9, 10, SS_ANNE_2F_ROOMS, 1
+	warp_event 13, 10, SS_ANNE_2F_ROOMS, 3
+	warp_event 17, 10, SS_ANNE_2F_ROOMS, 5
+	warp_event 21, 10, SS_ANNE_2F_ROOMS, 7
+	warp_event 25, 10, SS_ANNE_2F_ROOMS, 9
 	warp_event 29, 11, SS_ANNE_2F_ROOMS, 11
 	warp_event  2,  4, SS_ANNE_1F, 9
 	warp_event  2, 12, SS_ANNE_3F, 2

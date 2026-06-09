@@ -798,10 +798,13 @@ ItemUseEvoStone:
 
 ItemUseVitamin:
 	ld a, [wIsInBattle]
-	and a
-	jp nz, ItemUseNotTime
+	cp 2
+	jp z, ItemUseNotTime
 
 ItemUseMedicine:
+	ld a, [wIsInBattle]
+	cp 2
+	jp z, ItemUseNotTime
 	ld a, [wPartyCount]
 	and a
 	jp z, .emptyParty
@@ -852,7 +855,7 @@ ItemUseMedicine:
 ; if using softboiled
 	ld a, [wWhichPokemon]
 	cp d ; is the pokemon trying to use softboiled on itself?
-	jr z, ItemUseMedicine ; if so, force another choice
+	jp z, ItemUseMedicine ; if so, force another choice
 .checkItemType
 	ld a, [wCurItem]
 	cp REVIVE
@@ -1547,6 +1550,8 @@ ItemUseXAccuracy:
 	ld a, [wIsInBattle]
 	and a
 	jp z, ItemUseNotTime
+	cp 2
+	jp z, ItemUseNotTime
 	ld hl, wPlayerBattleStatus2
 	set USING_X_ACCURACY, [hl] ; X Accuracy bit
 	jp PrintItemUseTextAndRemoveItem
@@ -1618,6 +1623,8 @@ ItemUseGuardSpec:
 	ld a, [wIsInBattle]
 	and a
 	jp z, ItemUseNotTime
+	cp 2
+	jp z, ItemUseNotTime
 	ld hl, wPlayerBattleStatus2
 	set PROTECTED_BY_MIST, [hl] ; Mist bit
 	jp PrintItemUseTextAndRemoveItem
@@ -1634,6 +1641,8 @@ ItemUseDireHit:
 	ld a, [wIsInBattle]
 	and a
 	jp z, ItemUseNotTime
+	cp 2
+	jp z, ItemUseNotTime
 	ld hl, wPlayerBattleStatus2
 	set GETTING_PUMPED, [hl] ; Focus Energy bit
 	jp PrintItemUseTextAndRemoveItem
@@ -1644,9 +1653,12 @@ ItemUseXStat:
 	jr nz, .inBattle
 	call ItemUseNotTime
 	ld a, 2
-	ld [wActionResultOrTookBattleTurn], a ; item not used
+	ld [wActionResultOrTookBattleTurn], a
 	ret
 .inBattle
+	ld a, [wIsInBattle]
+	cp 2
+	jp z, ItemUseNotTime
 	ld hl, wPlayerMoveNum
 	ld a, [hli]
 	push af ; save [wPlayerMoveNum]
@@ -1951,10 +1963,13 @@ ItemfinderFoundNothingText:
 
 ItemUsePPUp:
 	ld a, [wIsInBattle]
-	and a
-	jp nz, ItemUseNotTime
+	cp 2
+	jp z, ItemUseNotTime
 
 ItemUsePPRestore:
+	ld a, [wIsInBattle]
+	cp 2
+	jp z, ItemUseNotTime
 	ld a, [wWhichPokemon]
 	push af
 	ld a, [wCurItem]

@@ -509,12 +509,6 @@ WarpFound2::
 	ld [wUnusedLastMapWidth], a
 	ldh a, [hWarpDestinationMap]
 	ld [wCurMap], a
-	cp ROCK_TUNNEL_1F
-	jr nz, .notRockTunnel
-	ld a, $06
-	ld [wMapPalOffset], a
-	call GBFadeOutToBlack
-.notRockTunnel
 	call PlayMapChangeSound
 	jr .done
 

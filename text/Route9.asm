@@ -155,3 +155,10 @@ _Route9SignText::
 	line "CERULEAN CITY-"
 	cont "ROCK TUNNEL"
 	done
+
+_Route9GuardText::
+	text "The power plant"
+	line "ahead is off"
+	cont "limits! Defeat"
+	cont "LT.SURGE first!"
+	done

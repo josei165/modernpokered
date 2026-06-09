@@ -1302,435 +1302,435 @@ CrobatDexEntry:
 	text_end
 
 BellossomDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "FLOWER@"
+	db 1,4
+	dw 120
 	text_far _BellossomDexEntry
 	text_end
 
 PolitoedDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "FROG@"
+	db 3,7
+	dw 740
 	text_far _PolitoedDexEntry
 	text_end
 
 SlowkingDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "ROYAL@"
+	db 6,7
+	dw 1750
 	text_far _SlowkingDexEntry
 	text_end
 
 SteelixDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "IRONSNAKE@"
+	db 30,2
+	dw 8810
 	text_far _SteelixDexEntry
 	text_end
 
 BlisseyDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "HAPPINESS@"
+	db 4,11
+	dw 1030
 	text_far _BlisseyDexEntry
 	text_end
 
 KingdraDexEntry:
-	db "BAT@"
+	db "DRAGON@"
 	db 5,11
-	dw 1650
+	dw 3350
 	text_far _KingraDexEntry
 	text_end
 
 ScizorDexEntry:
-	db "BAT@"
+	db "PINCER@"
 	db 5,11
-	dw 1650
+	dw 2600
 	text_far _ScizorDexEntry
 	text_end
 
 EspeonDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SUN@"
+	db 2,11
+	dw 580
 	text_far _EspeonDexEntry
 	text_end
 
 UmbreonDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MOONLIGHT@"
+	db 3,3
+	dw 590
 	text_far _UmbreonDexEntry
 	text_end
 
 Porygon2DexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "VIRTUAL@"
+	db 2,0
+	dw 710
 	text_far _Porygon2DexEntry
 	text_end
 
 MagnezoneDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MAGNETAREA@"
+	db 3,11
+	dw 3960
 	text_far _MagnezoneDexEntry
 	text_end
 
 LickilickyDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "LICKING@"
+	db 5,7
+	dw 3080
 	text_far _LickilickyDexEntry
 	text_end
 
 RhyperiorDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "DRILL@"
+	db 7,10
+	dw 6230
 	text_far _RhyperiorDexEntry
 	text_end
 
 TangrowthDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "VINE@"
+	db 6,7
+	dw 2830
 	text_far _TangrowthDexEntry
 	text_end
 
 ElectivireDexEntry:
-	db "BAT@"
+	db "THUNDERBLT@"
 	db 5,11
-	dw 1650
+	dw 3050
 	text_far _ElectivireDexEntry
 	text_end
 
 MagmortarDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "BLAST@"
+	db 5,3
+	dw 1490
 	text_far _MagmortarDexEntry
 	text_end
 
 LeafeonDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "VERDANT@"
+	db 3,3
+	dw 560
 	text_far _LeafeonDexEntry
 	text_end
 
 GlaceonDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "FRESH SNOW@"
+	db 2,7
+	dw 570
 	text_far _GlaceonDexEntry
 	text_end
 
 PorygonZDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "VIRTUAL@"
+	db 2,11
+	dw 750
 	text_far _PorygonZDexEntry
 	text_end
 
 SylveonDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "INTERTWNNG@"
+	db 3,3
+	dw 510
 	text_far _SylveonDexEntry
 	text_end
 
 RattataADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "RAT@"
+	db 1,0
+	dw 80
 	text_far _RattataADexEntry
 	text_end
 
 RaticateADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "RAT@"
+	db 2,4
+	dw 560
 	text_far _RaticateADexEntry
 	text_end
 
 RaichuADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MOUSE@"
+	db 2,4
+	dw 460
 	text_far _RaichuADexEntry
 	text_end
 
 SandshrewADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MOUSE@"
+	db 2,4
+	dw 880
 	text_far _SandshrewADexEntry
 	text_end
 
 SandslashADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MOUSE@"
+	db 3,11
+	dw 1210
 	text_far _SandslashADexEntry
 	text_end
 
 VulpixADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "FOX@"
+	db 2,0
+	dw 210
 	text_far _VulpixADexEntry
 	text_end
 
 NinetalesADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "FOX@"
+	db 3,7
+	dw 440
 	text_far _NinetalesADexEntry
 	text_end
 
 DiglettADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MOLE@"
+	db 0,8
+	dw 20
 	text_far _DiglettADexEntry
 	text_end
 
 DugtrioADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MOLE@"
+	db 2,4
+	dw 1460
 	text_far _DugtrioADexEntry
 	text_end
 
 MeowthADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SCRATCHCAT@"
+	db 1,4
+	dw 90
 	text_far _MeowthADexEntry
 	text_end
 
 PersianADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "CLASSY CAT@"
+	db 3,7
+	dw 720
 	text_far _PersianADexEntry
 	text_end
 
 GeodudeADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "ROCK@"
+	db 1,4
+	dw 440
 	text_far _GeodudeADexEntry
 	text_end
 
 GravelerADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "ROCK@"
+	db 3,3
+	dw 2420
 	text_far _GravelerADexEntry
 	text_end
 
 GolemADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MEGATON@"
+	db 5,7
+	dw 6960
 	text_far _GolemADexEntry
 	text_end
 
 GrimerADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SLUDGE@"
+	db 2,4
+	dw 920
 	text_far _GrimerADexEntry
 	text_end
 
 MukADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SLUDGE@"
+	db 3,3
+	dw 1140
 	text_far _MukADexEntry
 	text_end
 
 ExeggutorADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "COCONUT@"
+	db 35,9
+	dw 9160
 	text_far _ExeggutorADexEntry
 	text_end
 
 MarowakADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "BONEKEEPER@"
+	db 3,3
+	dw 750
 	text_far _MarowakADexEntry
 	text_end
 
 MeowthGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SCRATCHCAT@"
+	db 1,4
+	dw 160
 	text_far _MeowthGDexEntry
 	text_end
 
 PerrserkerDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "VIKING@"
+	db 2,7
+	dw 610
 	text_far _PerrserkerDexEntry
 	text_end
 
 GrowlitheHDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SCOUT@"
+	db 2,7
+	dw 500
 	text_far _GrowlitheHDexEntry
 	text_end
 
 ArcanineHDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "LEGENDARY@"
+	db 6,7
+	dw 3700
 	text_far _ArcanineHDexEntry
 	text_end
 
 PonytaGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "UNIQUEHORN@"
+	db 2,7
+	dw 530
 	text_far _PonytaGDexEntry
 	text_end
 
 RapidashGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "UNIQUEHORN@"
+	db 5,7
+	dw 1760
 	text_far _RapidashGDexEntry
 	text_end
 
 SlowpokeGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "DOPEY@"
+	db 3,11
+	dw 790
 	text_far _SlowpokeGDexEntry
 	text_end
 
 SlowbroGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "HERMITCRAB@"
+	db 5,3
+	dw 1550
 	text_far _SlowbroGDexEntry
 	text_end
 
 SlowkingGDexEntry:
-	db "BAT@"
+	db "HEXPERT@"
 	db 5,11
-	dw 1650
+	dw 1750
 	text_far _SlowkingGDexEntry
 	text_end
 
 FarfetchdGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "WILD DUCK@"
+	db 2,7
+	dw 920
 	text_far _FarfetchdGDexEntry
 	text_end
 
 SirfetchdDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "WILD DUCK@"
+	db 2,7
+	dw 2570
 	text_far _SirfetchdDexEntry
 	text_end
 
 VoltorbHDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SPHERE@"
+	db 1,8
+	dw 280
 	text_far _VoltorbHDexEntry
 	text_end
 
 ElectrodeHDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "SPHERE@"
+	db 3,11
+	dw 1560
 	text_far _ElectrodeHDexEntry
 	text_end
 
 WeezingGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "POISON GAS@"
+	db 9,10
+	dw 350
 	text_far _WeezingGDexEntry
 	text_end
 
 MrMimeGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "DANCING@"
+	db 4,7
+	dw 1250
 	text_far _MrMimeGDexEntry
 	text_end
 
 MrRimeDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "COMEDIAN@"
+	db 4,11
+	dw 1280
 	text_far _MrRimeDexEntry
 	text_end
 
 KleavorDexEntry:
-	db "BAT@"
+	db "AXE@"
 	db 5,11
-	dw 1650
+	dw 1960
 	text_far _KleavorDexEntry
 	text_end
 
 ArticunoGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "CRUEL@"
+	db 5,7
+	dw 1120
 	text_far _ArticunoGDexEntry
 	text_end
 
 ZapdosGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "STRONGLEGS@"
+	db 5,3
+	dw 1280
 	text_far _ZapdosGDexEntry
 	text_end
 
 MoltresGDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "MALEVOLENT@"
+	db 6,7
+	dw 1450
 	text_far _MoltresGDexEntry
 	text_end
 
 AnnihilapeDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "RAGEMONKEY@"
+	db 3,11
+	dw 1230
 	text_far _AnnihilapeDexEntry
 	text_end
 
 TaurosCDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "WILD BULL@"
+	db 4,7
+	dw 2530
 	text_far _TaurosCDexEntry
 	text_end
 
 TaurosBDexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "WILD BULL@"
+	db 4,7
+	dw 1870
 	text_far _TaurosBDexEntry
 	text_end
 
 TaurosADexEntry:
-	db "BAT@"
-	db 5,11
-	dw 1650
+	db "WILD BULL@"
+	db 4,7
+	dw 2420
 	text_far _TaurosADexEntry
 	text_end

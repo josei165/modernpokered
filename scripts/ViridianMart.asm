@@ -99,4 +99,4 @@ ViridianMartCooltrainerMText:
 	text_end
 
 ViridianMartClerkText:
-	script_mart POKE_BALL, ANTIDOTE, PARLYZ_HEAL, BURN_HEAL
+	script_mart HM01, RARE_CANDY, MAX_ELIXER, MAX_REVIVE, MAX_REPEL

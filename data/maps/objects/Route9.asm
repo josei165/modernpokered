@@ -9,6 +9,7 @@
 	const_export ROUTE9_HIKER3
 	const_export ROUTE9_YOUNGSTER2
 	const_export ROUTE9_TM_TELEPORT
+	const_export ROUTE9_GUARD
 
 Route9_Object:
 	db $2c ; border block
@@ -29,5 +30,6 @@ Route9_Object:
 	object_event 45, 15, SPRITE_HIKER, STAY, RIGHT, TEXT_ROUTE9_HIKER3, OPP_HIKER, 5
 	object_event 40,  8, SPRITE_YOUNGSTER, STAY, RIGHT, TEXT_ROUTE9_YOUNGSTER2, OPP_BUG_CATCHER, 14
 	object_event 10, 15, SPRITE_POKE_BALL, STAY, NONE, TEXT_ROUTE9_TM_TELEPORT, TM_TELEPORT
+	object_event  7,  8, SPRITE_GUARD, STAY, LEFT, TEXT_ROUTE9_GUARD
 
 	def_warps_to ROUTE_9

@@ -82,6 +82,7 @@ YoungsterData:
 
 BugCatcherData:
 ; Viridian Forest
+	
 	db 6, WEEDLE, CATERPIE, 0
 	db 7, WEEDLE, KAKUNA, WEEDLE, 0
 	db 9, WEEDLE, 0

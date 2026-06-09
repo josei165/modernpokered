@@ -1515,177 +1515,177 @@ _CrobatDexEntry::
 	
 	page "flight, a new set"
 	next "of wings grew on"
-	next "its hind legs."
+	next "its hind legs"
 	dex
 
 _BellossomDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "Plentiful in the"
+	next "tropics. When it"
+	next "dances, its petals"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "rub together and"
+	next "make a pleasant"
+	next "ringing sound"
 	dex
 
 _PolitoedDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "Curled hair on its"
+	next "head proves its"
+	next "status as a king."
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "The longer and"
+	next "curlier, the more"
+	next "respect it earns"
 	dex
 
 _SlowkingDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+text "When its head was"
+	next "bitten, toxins"
+	next "entered Slowpoke's"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "head and unlocked"
+	next "an extraordinary"
+	next "power"
 	dex
 
 _SteelixDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "It is said that if"
+	next "an Onix lives for"
+	next "over 100 years,"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "its composition"
+	next "changes to become"
+	next "diamond-like"
 	dex
 
 _BlisseyDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "It has a very"
+	next "compassionate"
+	next "nature. If it sees"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "a sick #MON, it"
+	next "will nurse it"
+	next "back to health"
 	dex
 
 _KingraDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "It sleeps deep on"
+	next "the ocean floor to"
+	next "build its energy."
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "It is said to"
+	next "cause tornadoes"
+	next "as it wakes"
 	dex
 
 _ScizorDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "Its wings are not"
+	next "used for flying."
+	next "They are flapped"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "at high speed to"
+	next "adjust its body"
+	next "temperature"
 	dex
 
 _EspeonDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "By reading air"
+	next "currents, it can"
+	next "predict things"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "such as the weath-"
+	next "er or its foe's"
+	next "next move"
 	dex
 
 _UmbreonDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "When darkness"
+	next "falls, the rings"
+	next "on its body begin"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "to glow, striking"
+	next "fear in the hearts"
+	next "of anyone nearby"
 	dex
 
 _Porygon2DexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "Further research"
+	next "enhanced its"
+	next "abilities. It may"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "sometimes exhibit"
+	next "motions that were"
+	next "not programmed"
 	dex
 
 _MagnezoneDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "Sometimes the"
+	next "magnetism emitted"
+	next "by Magnezone is"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "too strong, making"
+	next "them attract each"
+	next "other so they"
 	dex
 
 _LickilickyDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "It wraps things"
+	next "with its"
+	next "extensible tongue."
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "Getting too close"
+	next "will leave you"
+	next "soaked with drool"
 	dex
 
 _RhyperiorDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "From holes in its"
+	next "palms, it fires"
+	next "out Geodude. Its"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "carapace can"
+	next "withstand volcanic"
+	next "eruptions"
 	dex
 
 _TangrowthDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "When it remains"
+	next "still, it appears"
+	next "to be a large"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "shrub. Prey that"
+	next "wander near get"
+	next "ensnared by vines"
 	dex
 
 _ElectivireDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "The instant it"
+	next "presses the tips"
+	next "of its tails onto"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "an opponent, it"
+	next "sends over 20,000"
+	next "volts into a foe"
 	dex
 
 _MagmortarDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "When launching"
+	next "3,600 degrees F"
+	next "fireballs, its"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "body takes on a"
+	next "whitish hue from"
+	next "the intense heat"
 	dex
 
 _LeafeonDexEntry::
-	text "As a result of its"
-	next "pursuit of faster,"
-	next "yet more silent"
+	text "Just like a plant,"
+	next "it uses"
+	next "photosynthesis. As"
 	
-	page "flight, a new set"
-	next "of wings grew on"
-	next "its hind legs."
+	page "a result, it is"
+	next "always enveloped"
+	next "in clear air"
 	dex
 
 

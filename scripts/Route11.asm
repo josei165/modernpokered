@@ -46,7 +46,7 @@ Route11TrainerHeader6:
 Route11TrainerHeader7:
 	trainer EVENT_BEAT_ROUTE_11_TRAINER_7, 4, Route11Youngster3BattleText, Route11Youngster3EndBattleText, Route11Youngster3AfterBattleText
 Route11TrainerHeader8:
-	trainer EVENT_BEAT_ROUTE_11_TRAINER_8, 3, Route11SuperNerd2BattleText, Route11SuperNerd2EndBattleText, Route11SuperNerd2AfterBattleText
+	trainer EVENT_BEAT_ROUTE_11_TRAINER_8, 1, Route11SuperNerd2BattleText, Route11SuperNerd2EndBattleText, Route11SuperNerd2AfterBattleText
 Route11TrainerHeader9:
 	trainer EVENT_BEAT_ROUTE_11_TRAINER_9, 4, Route11Youngster4BattleText, Route11Youngster4EndBattleText, Route11Youngster4AfterBattleText
 	db -1 ; end

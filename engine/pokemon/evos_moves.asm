@@ -182,6 +182,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld hl, wLoadedMonHPExp - 1
 	ld de, wLoadedMonStats
 	ld b, $1
+	call GetMonHeader
 	call CalcStats
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMon1

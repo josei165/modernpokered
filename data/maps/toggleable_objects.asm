@@ -85,7 +85,7 @@ ToggleableObjectStates:
 	toggle_object_state ROUTE4_TM_WHIRLWIND, ON
 
 	toggleable_objects_for ROUTE_9
-	toggle_object_state ROUTE9_TM_TELEPORT, ON
+	toggle_object_state ROUTE9_GUARD, ON 
 
 	toggleable_objects_for ROUTE_12
 	toggle_object_state ROUTE12_SNORLAX,    ON
@@ -417,6 +417,12 @@ ToggleableObjectStates:
 	toggle_object_state SEAFOAMISLANDSB4F_BOULDER1, OFF
 	toggle_object_state SEAFOAMISLANDSB4F_BOULDER2, OFF
 	toggle_object_state SEAFOAMISLANDSB4F_ARTICUNO, ON
+
+	toggleable_objects_for VIRIDIAN_FOREST_SOUTH_GATE
+	toggle_object_state VIRIDIANFORESTSOUTHGATE_OAKS_AIDE, ON
+
+	toggleable_objects_for ROUTE_5
+	toggle_object_state ROUTE5_UNDERGROUND_GUARD, ON
 
 	assert_table_length NUM_TOGGLEABLE_OBJECTS
 

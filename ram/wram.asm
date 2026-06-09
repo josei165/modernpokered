@@ -570,7 +570,8 @@ wEnemyMonStatMods::
 wEnemyMonAttackMod:: db
 wEnemyMonDefenseMod:: db
 wEnemyMonSpeedMod:: db
-wEnemyMonSpecialMod:: db
+wEnemyMonSpclAtkMod:: db
+wEnemyMonSpclDefMod:: db
 wEnemyMonAccuracyMod:: db
 wEnemyMonEvasionMod:: db
 	ds 2

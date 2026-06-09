@@ -1,3 +1,4 @@
+; calculates all 5 stats of current mon and writes them to [de]
 _CalcStats::
 	ld c, $0
 .statsLoop
@@ -12,8 +13,12 @@ _CalcStats::
 	ld a, c
 	cp NUM_STATS
 	jr nz, .statsLoop
-    ret
+	ret
 
+; calculates stat c of current mon
+; c: stat to calc (HP=1,Atk=2,Def=3,Spd=4,Spc=5)
+; b: consider stat exp?
+; hl: base ptr to stat exp values ([hl + 2*c - 1] and [hl + 2*c])
 _CalcStat::
 	push hl
 	push de
@@ -193,4 +198,4 @@ _CalcStat::
 	pop bc
 	pop de
 	pop hl
-    ret
+	ret
