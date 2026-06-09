@@ -1,3 +1,15 @@
+wip hack rom built on top of pokered.
+
+features to come or already in place but not fully bug tested:
+
+- bug fixes from pokered wiki (and stuff like special split and special stat split).
+- all gen 1 evos and forms from other gens (paldean tauros front and all added back sprites are pretty bad, since i had to change their resolutions to fit in here, palettes also not done).
+- totalling 214 mons, dex will be completable, along with cheap balls/repels/full restores for qol (idk abt rare candies yet).
+- set mode only and no healing in battle.
+- all trainers are mandatory but overworld puzzles won't be stupid like blue kaizo.
+
+
+
 # Pokémon Red and Blue [![Build Status][ci-badge]][ci]
 
 This is a disassembly of Pokémon Red and Blue.
