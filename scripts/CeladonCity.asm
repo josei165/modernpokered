@@ -2,6 +2,15 @@ CeladonCity_Script:
 	call EnableAutoTextBoxDrawing
 	ResetEvents EVENT_1B8, EVENT_1BF
 	ResetEvent EVENT_67F
+	call CeladonCityGymGuardCheck
+	ret
+
+CeladonCityGymGuardCheck:
+	CheckEvent EVENT_GOT_POKE_FLUTE
+	ret z
+	ld a, TOGGLE_CELADONCITY_GYM_GUARD
+	ld [wToggleableObjectIndex], a
+	predef HideObject
 	ret
 
 CeladonCity_TextPointers:
@@ -15,6 +24,7 @@ CeladonCity_TextPointers:
 	dw_const CeladonCityPoliwrathText,         TEXT_CELADONCITY_POLIWRATH
 	dw_const CeladonCityRocket1Text,           TEXT_CELADONCITY_ROCKET1
 	dw_const CeladonCityRocket2Text,           TEXT_CELADONCITY_ROCKET2
+	dw_const CeladonCityGymGuardText, 		   TEXT_CELADONCITY_GYM_GUARD
 	dw_const CeladonCityTrainerTips1Text,      TEXT_CELADONCITY_TRAINER_TIPS1
 	dw_const CeladonCitySignText,              TEXT_CELADONCITY_SIGN
 	dw_const PokeCenterSignText,               TEXT_CELADONCITY_POKECENTER_SIGN
@@ -130,4 +140,8 @@ CeladonCityPrizeExchangeSignText:
 
 CeladonCityGameCornerSignText:
 	text_far _CeladonCityGameCornerSignText
+	text_end
+
+CeladonCityGymGuardText:
+	text_far _CeladonCityGymGuardText
 	text_end

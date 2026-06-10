@@ -321,6 +321,8 @@ CinnabarGymSuperNerd3:
 	call CinnabarGymSetTrainerHeader
 	CheckEvent EVENT_BEAT_CINNABAR_GYM_TRAINER_2
 	jr nz, .defeated
+	CheckEvent EVENT_BEAT_CINNABAR_GYM_TRAINER_0
+	jr z, .needsNerd1
 	ld hl, .BattleText
 	call PrintText
 	ld hl, .EndBattleText
@@ -329,6 +331,15 @@ CinnabarGymSuperNerd3:
 	jp CinnabarGymStartBattleScript
 .defeated
 	ld hl, .AfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.needsNerd1
+	xor a
+	ld [wJoyIgnore], a
+	ld [wOpponentAfterWrongAnswer], a
+	ld [wCinnabarGymCurScript], a
+	ld [wCurMapScript], a
+	ld hl, .BlockedText
 	call PrintText
 	jp TextScriptEnd
 
@@ -342,6 +353,10 @@ CinnabarGymSuperNerd3:
 
 .AfterBattleText:
 	text_far _CinnabarGymSuperNerd3AfterBattleText
+	text_end
+
+.BlockedText:
+	text_far _CinnabarGymSuperNerd3BlockedText
 	text_end
 
 CinnabarGymSuperNerd4:
@@ -475,3 +490,4 @@ CinnabarGymGymGuideText:
 .BeatBlaineText:
 	text_far _CinnabarGymGymGuideBeatBlaineText
 	text_end
+

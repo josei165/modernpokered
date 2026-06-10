@@ -16,10 +16,6 @@ _FuchsiaGymKogaSoulBadgeInfoText::
 	cont "your #MON"
 	cont "increases!"
 
-	para "It also lets you"
-	line "SURF outside of"
-	cont "battle!"
-
 	para "Ah! Take this"
 	line "too!"
 	done

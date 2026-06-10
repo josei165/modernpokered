@@ -8,7 +8,7 @@ FuchsiaGoodRodHouse_TextPointers:
 FuchsiaGoodRodHouseFishingGuruText:
 	text_asm
 	ld a, [wStatusFlags1]
-	bit BIT_GOT_GOOD_ROD, a
+	bit BIT_GOT_SUPER_ROD, a
 	jr nz, .got_item
 	ld hl, .Text
 	call PrintText
@@ -16,11 +16,11 @@ FuchsiaGoodRodHouseFishingGuruText:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refused
-	lb bc, GOOD_ROD, 1
+	lb bc, SUPER_ROD, 1
 	call GiveItem
 	jr nc, .bag_full
 	ld hl, wStatusFlags1
-	set BIT_GOT_GOOD_ROD, [hl]
+	set BIT_GOT_SUPER_ROD, [hl]
 	ld hl, .ReceivedGoodRodText
 	jr .done
 .bag_full

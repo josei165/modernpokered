@@ -32,7 +32,7 @@ _Route12Gate2FLeftBinocularsText::
 	text "Looked into the"
 	line "binoculars."
 
-	para "A man fishing!"
+	para "It's #MON TOWER!"
 	done
 
 _Route12Gate2FRightBinocularsText::

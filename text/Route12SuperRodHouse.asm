@@ -43,7 +43,7 @@ _Route12SuperRodHouseFishingGuruTryFishingText::
 	text "Hello there,"
 	line "<PLAYER>!"
 
-	para "Use the SUPER ROD"
+	para "Use the GOOD ROD"
 	line "in any water!"
 	cont "You can catch"
 	cont "different kinds"

@@ -58,12 +58,14 @@ ENDM
 	const TOGGLE_ROUTE_4_ITEM                  ; 1B X
 
 	toggle_consts_for ROUTE_9
+	const TOGGLE_ROUTE9_TM_TELEPORT
 	const TOGGLE_ROUTE9_GUARD                  ; 1C, replaced teleport tm to not run into id problems
 
 	toggle_consts_for ROUTE_12
 	const TOGGLE_ROUTE_12_SNORLAX              ; 1D
 	const TOGGLE_ROUTE_12_ITEM_1               ; 1E X
 	const TOGGLE_ROUTE_12_ITEM_2               ; 1F X
+	const TOGGLE_ROUTE12_GUARD
 
 	toggle_consts_for ROUTE_15
 	const TOGGLE_ROUTE_15_ITEM                 ; 20 X
@@ -171,6 +173,7 @@ ENDM
 	const TOGGLE_POWER_PLANT_ITEM_3            ; 58 X
 	const TOGGLE_POWER_PLANT_ITEM_4            ; 59 X
 	const TOGGLE_POWER_PLANT_ITEM_5            ; 5A X
+	const TOGGLE_GALARIANZAPDOS                        ; 55 X
 
 	toggle_consts_for VICTORY_ROAD_2F
 	const TOGGLE_MOLTRES                       ; 5B X
@@ -395,6 +398,18 @@ ENDM
 	const TOGGLE_VIRIDIAN_FOREST_SOUTH_GATE_OAKS_AIDE ; E4
 
 	toggle_consts_for ROUTE_5
-	const TOGGLE_ROUTE5_UNDERGROUND_GUARD, ON ; E5
+	const TOGGLE_ROUTE5_UNDERGROUND_GUARD ; E6
+
+	toggle_consts_for HALL_OF_FAME
+	const TOGGLE_HALLOFFAME_OAK    ; E7
+
+	toggle_consts_for CELADON_MART_5F
+	const TOGGLE_CELADONMART5F_GUARD
+
+	toggle_consts_for CELADON_CITY
+	const TOGGLE_CELADONCITY_GYM_GUARD
+
+	toggle_consts_for LAVENDER_TOWN
+	const TOGGLE_LAVENDERTOWN_TOWER_GUARD
 
 DEF NUM_TOGGLEABLE_OBJECTS EQU const_value

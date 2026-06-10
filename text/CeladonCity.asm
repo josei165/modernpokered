@@ -152,3 +152,10 @@ _CeladonCityGameCornerSignText::
 	line "The playground"
 	cont "for grown-ups!"
 	done
+
+_CeladonCityGymGuardText::
+	text "The GYM is closed"
+	line "for now. Come back"
+	cont "once you've been"
+	cont "to POKEMON TOWER!"
+	done

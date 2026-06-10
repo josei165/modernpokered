@@ -182,7 +182,7 @@ StartBattle:
 	ld a, [wEnemyMonSpeed + 1]
 	add a
 	ld b, a ; init b (which is later compared with random value) to (enemy speed % 256) * 2
-	jp c, EnemyRan ; if (enemy speed % 256) > 127, the enemy runs
+	;jp c, EnemyRan ; if (enemy speed % 256) > 127, the enemy runs
 	ld a, [wSafariBaitFactor]
 	and a ; is bait factor 0?
 	jr z, .checkEscapeFactor
@@ -204,7 +204,8 @@ StartBattle:
 	call Random
 	cp b
 	jr nc, .checkAnyPartyAlive
-	jr EnemyRan ; if b was greater than the random value, the enemy runs
+	;jr EnemyRan ; if b was greater than the random value, the enemy runs
+	jr .checkAnyPartyAlive
 
 .outOfSafariBallsText
 	text_far _OutOfSafariBallsText

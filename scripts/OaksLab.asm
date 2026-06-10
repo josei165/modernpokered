@@ -968,6 +968,31 @@ OaksLabLastMonText:
 
 OaksLabOak1Text:
 	text_asm
+	CheckEvent EVENT_BEAT_OAK
+	jr nz, .already_got_poke_balls
+	CheckEvent EVENT_BEAT_CHAMPION_FOR_POSTGAME
+	jr z, .skip_oak_battle
+	ld hl, .OakBattleText
+	call PrintText
+	ld hl, .OakEndBattleText
+	ld de, .OakEndBattleText
+	call SaveEndBattleTextPointers
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld a, OPP_PROF_OAK
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, OAKSLAB_OAK1
+	ld [wSpriteIndex], a
+	call GetSpritePosition1
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	xor a
+	ld [wJoyIgnore], a
+	jp TextScriptEnd
+.skip_oak_battle
 	CheckEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS
 	jr nz, .already_got_poke_balls
 	ld hl, wPokedexOwned
@@ -1036,6 +1061,30 @@ OaksLabOak1Text:
 	call PrintText
 .done
 	jp TextScriptEnd
+
+.OakBattleText:
+	text_far _OaksLabOakBattleText
+	text_end
+
+.OakEndBattleText:
+	text_asm
+	ld a, [wBattleResult]
+	and a
+	jr nz, .lost
+	SetEvent EVENT_BEAT_OAK
+	xor a
+	ld [wIsTrainerBattle], a
+	ld hl, .AfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.lost
+	xor a
+	ld [wIsTrainerBattle], a
+	farcall ResetStatusAndHalveMoneyOnBlackout
+	jp DisplayPlayerBlackedOutText
+.AfterBattleText:
+	text_far _OaksLabOakAfterBattleText
+	text_end
 
 .WhichPokemonDoYouWantText:
 	text_far _OaksLabOak1WhichPokemonDoYouWantText

@@ -68,7 +68,7 @@ PokemonMansion2F_TextPointers:
 Mansion2TrainerHeaders:
 	def_trainers
 Mansion2TrainerHeader0:
-	trainer EVENT_BEAT_MANSION_2_TRAINER_0, 0, PokemonMansion2FSuperNerdBattleText, PokemonMansion2FSuperNerdEndBattleText, PokemonMansion2FSuperNerdAfterBattleText
+	trainer EVENT_BEAT_MANSION_2_TRAINER_0, 1, PokemonMansion2FSuperNerdBattleText, PokemonMansion2FSuperNerdEndBattleText, PokemonMansion2FSuperNerdAfterBattleText
 	db -1 ; end
 
 PokemonMansion2FSuperNerdText:

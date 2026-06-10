@@ -34,7 +34,7 @@ SilphCo4FGateCallbackScript:
 
 .GateCoordinates:
 	dbmapcoord  2,  6
-	dbmapcoord  6,  4
+	dbmapcoord  6,  6
 	db -1 ; end
 
 SilphCo4F_SetCardKeyDoorYScript:

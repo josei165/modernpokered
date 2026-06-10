@@ -362,3 +362,16 @@ _OaksLabScientistText::
 	text "I study #MON as"
 	line "PROF.OAK's AIDE."
 	done
+
+_OaksLabOakBattleText::
+	text "So, you've become"
+	line "quite the trainer!"
+	cont "Let me test your"
+	line "skills! Come on!"
+	done
+
+_OaksLabOakAfterBattleText::
+	text "Impressive! You've"
+	line "grown so much."
+	cont "Keep at it!"
+	done

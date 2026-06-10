@@ -104,7 +104,7 @@ _Route16SnorlaxWokeUpText::
 
 _Route16SnorlaxReturnedToMountainsText::
 	text "With a big yawn,"
-	line "SNORLAX returned"
+	line "DITTO returned"
 	cont "to the mountains!"
 	done
 

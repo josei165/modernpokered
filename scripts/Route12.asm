@@ -1,10 +1,20 @@
 Route12_Script:
 	call EnableAutoTextBoxDrawing
+	call Route12GuardCheck
 	ld hl, Route12TrainerHeaders
 	ld de, Route12_ScriptPointers
 	ld a, [wRoute12CurScript]
 	call ExecuteCurMapScriptInTable
 	ld [wRoute12CurScript], a
+	ret
+
+Route12GuardCheck:
+	ld a, [wObtainedBadges]
+	bit BIT_RAINBOWBADGE, a
+	ret z
+	ld a, TOGGLE_ROUTE12_GUARD
+	ld [wToggleableObjectIndex], a
+	predef HideObject
 	ret
 
 Route12ResetScripts:
@@ -30,7 +40,7 @@ Route12DefaultScript:
 	ld a, TEXT_ROUTE12_SNORLAX_WOKE_UP
 	ldh [hTextID], a
 	call DisplayTextID
-	ld a, SNORLAX
+	ld a, DITTO
 	ld [wCurOpponent], a
 	ld a, 30
 	ld [wCurEnemyLevel], a
@@ -75,10 +85,12 @@ Route12_TextPointers:
 	dw_const Route12Fisher5Text,           TEXT_ROUTE12_FISHER5
 	dw_const PickUpItemText,               TEXT_ROUTE12_TM_PAY_DAY
 	dw_const PickUpItemText,               TEXT_ROUTE12_IRON
+	dw_const Route12GuardText,			   TEXT_ROUTE12_GUARD
 	dw_const Route12SignText,              TEXT_ROUTE12_SIGN
 	dw_const Route12SportFishingSignText,  TEXT_ROUTE12_SPORT_FISHING_SIGN
 	dw_const Route12SnorlaxWokeUpText,     TEXT_ROUTE12_SNORLAX_WOKE_UP
 	dw_const Route12SnorlaxCalmedDownText, TEXT_ROUTE12_SNORLAX_CALMED_DOWN
+	
 
 Route12TrainerHeaders:
 	def_trainers 2
@@ -95,7 +107,7 @@ Route12TrainerHeader4:
 Route12TrainerHeader5:
 	trainer EVENT_BEAT_ROUTE_12_TRAINER_5, 4, Route12Fisher4BattleText, Route12Fisher4EndBattleText, Route12Fisher4AfterBattleText
 Route12TrainerHeader6:
-	trainer EVENT_BEAT_ROUTE_12_TRAINER_6, 1, Route12Fisher5BattleText, Route12Fisher5EndBattleText, Route12Fisher5AfterBattleText
+	trainer EVENT_BEAT_ROUTE_12_TRAINER_6, 2, Route12Fisher5BattleText, Route12Fisher5EndBattleText, Route12Fisher5AfterBattleText
 	db -1 ; end
 
 Route12SnorlaxText:
@@ -242,4 +254,8 @@ Route12SignText:
 
 Route12SportFishingSignText:
 	text_far _Route12SportFishingSignText
+	text_end
+
+Route12GuardText:
+	text_far _Route12GuardText
 	text_end

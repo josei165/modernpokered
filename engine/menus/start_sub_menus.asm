@@ -130,7 +130,7 @@ StartMenu_Pokemon::
 	dw .teleport
 	dw .softboiled
 .fly
-	bit BIT_THUNDERBADGE, a
+	bit BIT_RAINBOWBADGE, a
 	jp z, .newBadgeRequired
 	call CheckIfInOutsideMap
 	jr z, .canFly
@@ -158,7 +158,7 @@ StartMenu_Pokemon::
 	jp z, .loop
 	jp CloseTextDisplay
 .surf
-	bit BIT_SOULBADGE, a
+	bit BIT_MARSHBADGE, a
 	jp z, .newBadgeRequired
 	farcall IsSurfingAllowed
 	ld hl, wStatusFlags1
@@ -175,7 +175,7 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .strength
-	bit BIT_RAINBOWBADGE, a
+	bit BIT_VOLCANOBADGE, a
 	jp z, .newBadgeRequired
 	predef PrintStrengthText
 	call GBPalWhiteOutWithDelay3
@@ -193,6 +193,8 @@ StartMenu_Pokemon::
 	text_far _FlashLightsAreaText
 	text_end
 .dig
+	bit BIT_SOULBADGE, a
+	jp z, .newBadgeRequired
 	ld a, ESCAPE_ROPE
 	ld [wCurItem], a
 	ld [wPseudoItemID], a
@@ -203,6 +205,8 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .teleport
+	bit BIT_SOULBADGE, a
+	jp z, .newBadgeRequired
 	call CheckIfInOutsideMap
 	jr z, .canTeleport
 	ld a, [wWhichPokemon]

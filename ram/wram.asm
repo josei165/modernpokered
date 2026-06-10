@@ -1966,7 +1966,10 @@ wRedsHouse2FCurScript:: db
 wViridianMartCurScript:: db
 wRoute22GateCurScript:: db
 wCeruleanCityCurScript:: db
-	ds 7
+wCeladonMart5FCurScript:: db
+wCeladonCityCurScript:: db
+wLavenderTownCurScript:: db
+	ds 4
 wSSAnneBowCurScript:: db
 wViridianForestCurScript:: db
 wMuseum1FCurScript:: db
@@ -2024,11 +2027,12 @@ wChampionsRoomCurScript:: db
 wLoreleisRoomCurScript:: db
 wBrunosRoomCurScript:: db
 wAgathasRoomCurScript:: db
+wCeruleanCave1FCurScript:: db
+wCeruleanCave2FCurScript:: db
 wCeruleanCaveB1FCurScript:: db
 wVictoryRoad1FCurScript:: db
-	ds 1
 wLancesRoomCurScript:: db
-	ds 4
+	ds 3
 wSilphCo10FCurScript:: db
 wSilphCo11FCurScript:: db
 	ds 1

@@ -99,4 +99,4 @@ ViridianMartCooltrainerMText:
 	text_end
 
 ViridianMartClerkText:
-	script_mart HM01, RARE_CANDY, MAX_ELIXER, MAX_REVIVE, MAX_REPEL
+	script_mart MASTER_BALL, FULL_RESTORE, RARE_CANDY, MAX_ELIXER, MAX_REVIVE, MAX_REPEL

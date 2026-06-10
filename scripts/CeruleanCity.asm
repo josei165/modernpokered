@@ -40,6 +40,13 @@ IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+	ld a, [wObtainedBadges]
+	bit BIT_VOLCANOBADGE, a
+	jr z, .skipHideCaveGuy
+	ld a, TOGGLE_CERULEAN_CAVE_GUY
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+.skipHideCaveGuy
 	CheckEvent EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	jr nz, .skipRocketThiefEncounter
 	ld hl, CeruleanCityCoords1

@@ -47,13 +47,13 @@ Route17TrainerHeader4:
 Route17TrainerHeader5:
 	trainer EVENT_BEAT_ROUTE_17_TRAINER_5, 2, Route17Biker6BattleText, Route17Biker6EndBattleText, Route17Biker6AfterBattleText
 Route17TrainerHeader6:
-	trainer EVENT_BEAT_ROUTE_17_TRAINER_6, 4, Route17Biker7BattleText, Route17Biker7EndBattleText, Route17Biker7AfterBattleText
+	trainer EVENT_BEAT_ROUTE_17_TRAINER_6, 3, Route17Biker7BattleText, Route17Biker7EndBattleText, Route17Biker7AfterBattleText
 Route17TrainerHeader7:
-	trainer EVENT_BEAT_ROUTE_17_TRAINER_7, 2, Route17Biker8BattleText, Route17Biker8EndBattleText, Route17Biker8AfterBattleText
+	trainer EVENT_BEAT_ROUTE_17_TRAINER_7, 3, Route17Biker8BattleText, Route17Biker8EndBattleText, Route17Biker8AfterBattleText
 Route17TrainerHeader8:
 	trainer EVENT_BEAT_ROUTE_17_TRAINER_8, 3, Route17Biker9BattleText, Route17Biker9EndBattleText, Route17Biker9AfterBattleText
 Route17TrainerHeader9:
-	trainer EVENT_BEAT_ROUTE_17_TRAINER_9, 4, Route17Biker10BattleText, Route17Biker10EndBattleText, Route17Biker10AfterBattleText
+	trainer EVENT_BEAT_ROUTE_17_TRAINER_9, 2, Route17Biker10BattleText, Route17Biker10EndBattleText, Route17Biker10AfterBattleText
 	db -1 ; end
 
 Route17Biker1Text:

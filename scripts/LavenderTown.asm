@@ -1,11 +1,22 @@
 LavenderTown_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	call LavenderTownTowerGuardCheck
+	ret
+
+LavenderTownTowerGuardCheck:
+	CheckEvent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI
+	ret z
+	ld a, TOGGLE_LAVENDERTOWN_TOWER_GUARD
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
 
 LavenderTown_TextPointers:
 	def_text_pointers
 	dw_const LavenderTownLittleGirlText,       TEXT_LAVENDERTOWN_LITTLE_GIRL
 	dw_const LavenderTownCooltrainerMText,     TEXT_LAVENDERTOWN_COOLTRAINER_M
 	dw_const LavenderTownSuperNerdText,        TEXT_LAVENDERTOWN_SUPER_NERD
+	dw_const LavenderTownTowerGuardText,       TEXT_LAVENDERTOWN_TOWER_GUARD
 	dw_const LavenderTownSignText,             TEXT_LAVENDERTOWN_SIGN
 	dw_const LavenderTownSilphScopeSignText,   TEXT_LAVENDERTOWN_SILPH_SCOPE_SIGN
 	dw_const MartSignText,                     TEXT_LAVENDERTOWN_MART_SIGN
@@ -61,4 +72,8 @@ LavenderTownPokemonHouseSignText:
 
 LavenderTownPokemonTowerSignText:
 	text_far _LavenderTownPokemonTowerSignText
+	text_end
+
+LavenderTownTowerGuardText:
+	text_far _LavenderTownTowerGuardText
 	text_end

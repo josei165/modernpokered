@@ -17,6 +17,15 @@ CinnabarGymQuiz::
 	and $f0
 	swap a
 	ldh [hGymGateAnswer], a
+	ldh a, [hGymGateIndex]
+	cp 2
+	jr nz, .skipNerd1Check
+	CheckEvent EVENT_BEAT_CINNABAR_GYM_TRAINER_0
+	jr nz, .skipNerd1Check
+	ld hl, CinnabarGymQuizBlockedText
+	call PrintText
+	jp TextScriptEnd
+.skipNerd1Check
 	ld hl, CinnabarGymQuizIntroText
 	call PrintText
 	ldh a, [hGymGateIndex]
@@ -77,6 +86,7 @@ CinnabarGymGateFlagAction:
 
 CinnabarGymQuiz_AskQuestion:
 	call YesNoChoice
+	jr .wrongAnswer
 	ldh a, [hGymGateAnswer]
 	ld c, a
 	ld a, [wCurrentMenuItem]
@@ -139,6 +149,10 @@ CinnabarGymQuizCorrectText:
 CinnabarGymQuizIncorrectText:
 	text_far _CinnabarGymQuizIncorrectText
 	text_end
+
+CinnabarGymQuizBlockedText:
+	text_far _CinnabarGymQuizBlockedText
+	text_end	
 
 UpdateCinnabarGymGateTileBlocks_::
 ; Update the overworld map with open floor blocks or locked gate blocks

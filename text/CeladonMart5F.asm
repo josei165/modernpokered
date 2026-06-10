@@ -26,3 +26,9 @@ _CeladonMart5FSailorText::
 _CeladonMart5FCurrentFloorSignText::
 	text "5F: DRUG STORE"
 	done
+
+_CeladonMart5FGuardText::
+	text "The special items"
+	line "here are for"
+	cont "serious trainers!"
+	done

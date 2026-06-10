@@ -355,9 +355,12 @@ OverworldLoopLessDelay::
 .notCinnabarGym
 	ld hl, wStatusFlags4
 	set BIT_BATTLE_OVER_OR_BLACKOUT, [hl]
-	ld a, [wCurMap]
+ld a, [wCurMap]
 	cp OAKS_LAB
+	jr nz, .faintCheck
+	CheckEvent EVENT_BEAT_CHAMPION_FOR_POSTGAME
 	jp z, .noFaintCheck ; no blacking out if the player lost to the rival in Oak's lab
+.faintCheck
 	callfar AnyPartyAlive
 	ld a, d
 	and a

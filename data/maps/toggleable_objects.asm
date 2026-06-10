@@ -85,12 +85,14 @@ ToggleableObjectStates:
 	toggle_object_state ROUTE4_TM_WHIRLWIND, ON
 
 	toggleable_objects_for ROUTE_9
+	toggle_object_state ROUTE9_TM_TELEPORT, ON
 	toggle_object_state ROUTE9_GUARD, ON 
 
 	toggleable_objects_for ROUTE_12
 	toggle_object_state ROUTE12_SNORLAX,    ON
 	toggle_object_state ROUTE12_TM_PAY_DAY, ON
 	toggle_object_state ROUTE12_IRON,       ON
+	toggle_object_state ROUTE12_GUARD,      ON
 
 	toggleable_objects_for ROUTE_15
 	toggle_object_state ROUTE15_TM_RAGE, ON
@@ -198,6 +200,7 @@ ToggleableObjectStates:
 	toggle_object_state POWERPLANT_RARE_CANDY, ON
 	toggle_object_state POWERPLANT_TM_THUNDER, ON
 	toggle_object_state POWERPLANT_TM_REFLECT, ON
+	toggle_object_state POWERPLANT_GALARIAN_ZAPDOS,     ON
 
 	toggleable_objects_for VICTORY_ROAD_2F
 	toggle_object_state VICTORYROAD2F_MOLTRES,       ON
@@ -423,6 +426,18 @@ ToggleableObjectStates:
 
 	toggleable_objects_for ROUTE_5
 	toggle_object_state ROUTE5_UNDERGROUND_GUARD, ON
+
+	toggleable_objects_for HALL_OF_FAME
+	toggle_object_state HALLOFFAME_OAK, ON
+
+	toggleable_objects_for CELADON_MART_5F
+	toggle_object_state CELADONMART5F_GUARD, ON
+
+	toggleable_objects_for CELADON_CITY
+	toggle_object_state CELADONCITY_GYM_GUARD, ON
+
+	toggleable_objects_for LAVENDER_TOWN
+	toggle_object_state LAVENDERTOWN_TOWER_GUARD, ON
 
 	assert_table_length NUM_TOGGLEABLE_OBJECTS
 

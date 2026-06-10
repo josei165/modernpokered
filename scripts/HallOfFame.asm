@@ -41,6 +41,7 @@ HallOfFameResetEventsAndSaveScript:
 	ld [hl], a ; wAgathasRoomCurScript
 	ld [wLancesRoomCurScript], a
 	ld [wHallOfFameCurScript], a
+	SetEvent EVENT_BEAT_CHAMPION_FOR_POSTGAME
 	; Elite 4 events
 	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END, 1
 	xor a
@@ -96,9 +97,6 @@ HallOfFameOakCongratulationsScript:
 	call DisplayTextID
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld a, TOGGLE_CERULEAN_CAVE_GUY
-	ld [wToggleableObjectIndex], a
-	predef HideObject
 	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
 	ld [wHallOfFameCurScript], a
 	ret

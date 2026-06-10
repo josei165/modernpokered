@@ -24,6 +24,7 @@ PowerPlant_TextPointers:
 	dw_const PowerPlantElectrode2Text, TEXT_POWERPLANT_ELECTRODE2
 	dw_const PowerPlantVoltorb6Text,   TEXT_POWERPLANT_VOLTORB6
 	dw_const PowerPlantZapdosText,     TEXT_POWERPLANT_ZAPDOS
+	dw_const PowerPlantGalarianZapdosText,     TEXT_POWERPLANT_GALARIANZAPDOS
 	dw_const PickUpItemText,           TEXT_POWERPLANT_CARBOS
 	dw_const PickUpItemText,           TEXT_POWERPLANT_HP_UP
 	dw_const PickUpItemText,           TEXT_POWERPLANT_RARE_CANDY
@@ -50,6 +51,8 @@ Voltorb7TrainerHeader:
 	trainer EVENT_BEAT_POWER_PLANT_VOLTORB_7, 0, PowerPlantVoltorbBattleText, PowerPlantVoltorbBattleText, PowerPlantVoltorbBattleText
 ZapdosTrainerHeader:
 	trainer EVENT_BEAT_ZAPDOS, 0, PowerPlantZapdosBattleText, PowerPlantZapdosBattleText, PowerPlantZapdosBattleText
+GalarianZapdosTrainerHeader:
+	trainer EVENT_BEAT_GALARIANZAPDOS, 0, PowerPlantGalarianZapdosBattleText, PowerPlantGalarianZapdosBattleText, PowerPlantGalarianZapdosBattleText
 	db -1 ; end
 
 PowerPlantInitBattleScript:
@@ -111,6 +114,19 @@ PowerPlantZapdosBattleText:
 	text_far _PowerPlantZapdosBattleText
 	text_asm
 	ld a, ZAPDOS
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
+
+PowerPlantGalarianZapdosText:
+	text_asm
+	ld hl, GalarianZapdosTrainerHeader
+	jr PowerPlantInitBattleScript
+
+PowerPlantGalarianZapdosBattleText:
+	text_far _PowerPlantZapdosBattleText
+	text_asm
+	ld a, ZAPDOSG
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd

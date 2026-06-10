@@ -11,7 +11,7 @@ _Route12SnorlaxWokeUpText::
 	done
 
 _Route12SnorlaxCalmedDownText::
-	text "SNORLAX calmed"
+	text "DITTO calmed"
 	line "down! With a big"
 	cont "yawn, it returned"
 	cont "to the mountains!"
@@ -136,4 +136,11 @@ _Route12SignText::
 
 _Route12SportFishingSignText::
 	text "SPORT FISHING AREA"
+	done
+
+_Route12GuardText::
+	text "The fishing area"
+	line "ahead is off"
+	cont "limits! Defeat"
+	cont "ERIKA first!"
 	done

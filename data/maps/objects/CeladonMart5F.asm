@@ -3,6 +3,7 @@
 	const_export CELADONMART5F_SAILOR
 	const_export CELADONMART5F_CLERK1
 	const_export CELADONMART5F_CLERK2
+	const_export CELADONMART5F_GUARD
 
 CeladonMart5F_Object:
 	db $f ; border block
@@ -20,5 +21,6 @@ CeladonMart5F_Object:
 	object_event  2,  6, SPRITE_SAILOR, STAY, NONE, TEXT_CELADONMART5F_SAILOR
 	object_event  5,  3, SPRITE_CLERK, STAY, DOWN, TEXT_CELADONMART5F_CLERK1
 	object_event  6,  3, SPRITE_CLERK, STAY, DOWN, TEXT_CELADONMART5F_CLERK2
+	object_event 12,  2, SPRITE_GUARD, STAY, DOWN, TEXT_CELADONMART5F_GUARD
 
 	def_warps_to CELADON_MART_5F

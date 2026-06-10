@@ -210,3 +210,13 @@ _CinnabarGymGymGuideBeatBlaineText::
 	text "<PLAYER>! You beat"
 	line "that fire brand!"
 	done
+
+_CinnabarGymSuperNerd3BlockedText::
+	text "<PLAYER>! You town"
+	line "that fire brand!"
+	done
+
+_CinnabarGymQuizBlockedText::
+	text "<PLAYER>! You china"
+	line "that fire brand!"
+	done
