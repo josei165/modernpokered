@@ -209,6 +209,7 @@ ToggleableObjectStates:
 	toggle_object_state VICTORYROAD2F_TM_MEGA_KICK,  ON
 	toggle_object_state VICTORYROAD2F_GUARD_SPEC,    ON
 	toggle_object_state VICTORYROAD2F_BOULDER3,      ON
+	toggle_object_state VICTORYROAD2F_GALARIANMOLTRES,       ON
 
 	toggleable_objects_for BILLS_HOUSE
 	toggle_object_state BILLSHOUSE_BILL_POKEMON, ON
@@ -387,9 +388,10 @@ ToggleableObjectStates:
 	toggle_object_state CERULEANCAVE2F_FULL_RESTORE, ON
 
 	toggleable_objects_for CERULEAN_CAVE_B1F
-	toggle_object_state CERULEANCAVEB1F_MEWTWO,     ON
+	toggle_object_state CERULEANCAVEB1F_MEWTWO,     OFF
 	toggle_object_state CERULEANCAVEB1F_ULTRA_BALL, ON
 	toggle_object_state CERULEANCAVEB1F_MAX_REVIVE, ON
+	toggle_object_state CERULEANCAVEB1F_MEW,     OFF
 
 	toggleable_objects_for VICTORY_ROAD_1F
 	toggle_object_state VICTORYROAD1F_TM_SKY_ATTACK, ON
@@ -420,6 +422,7 @@ ToggleableObjectStates:
 	toggle_object_state SEAFOAMISLANDSB4F_BOULDER1, OFF
 	toggle_object_state SEAFOAMISLANDSB4F_BOULDER2, OFF
 	toggle_object_state SEAFOAMISLANDSB4F_ARTICUNO, ON
+	toggle_object_state SEAFOAMISLANDSB4F_GALARIANARTICUNO, ON
 
 	toggleable_objects_for VIRIDIAN_FOREST_SOUTH_GATE
 	toggle_object_state VIRIDIANFORESTSOUTHGATE_OAKS_AIDE, ON
@@ -438,6 +441,12 @@ ToggleableObjectStates:
 
 	toggleable_objects_for LAVENDER_TOWN
 	toggle_object_state LAVENDERTOWN_TOWER_GUARD, ON
+
+	toggleable_objects_for ROUTE_20
+	toggle_object_state ROUTE20_GUARD, ON
+
+	toggleable_objects_for ROUTE_10
+	toggle_object_state ROUTE10_GUARD, ON
 
 	assert_table_length NUM_TOGGLEABLE_OBJECTS
 

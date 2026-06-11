@@ -8,6 +8,7 @@ VictoryRoad2F_Script:
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	call nz, VictoryRoad2FCheckBoulderEventScript
 	call EnableAutoTextBoxDrawing
+	call VictoryRoad2FMoltresSelectScript
 	ld hl, VictoryRoad2TrainerHeaders
 	ld de, VictoryRoad2F_ScriptPointers
 	ld a, [wVictoryRoad2FCurScript]
@@ -15,6 +16,27 @@ VictoryRoad2F_Script:
 	ld [wVictoryRoad2FCurScript], a
 	ret
 
+VictoryRoad2FMoltresSelectScript:
+	CheckEvent EVENT_BEAT_MOLTRES
+	ret nz
+	CheckEvent EVENT_BEAT_GALARIANMOLTRES
+	ret nz
+	CheckEvent EVENT_VICTORYROAD_MOLTRES_SELECTED
+	ret nz
+	SetEvent EVENT_VICTORYROAD_MOLTRES_SELECTED
+	call Random
+	cp 50 percent + 1
+	jr c, .hideGalarian
+	ld a, TOGGLE_MOLTRES
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
+.hideGalarian
+	ld a, TOGGLE_GALARIANMOLTRES
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
+	
 VictoryRoad2FResetBoulderEventScript:
 	ResetEvent EVENT_VICTORY_ROAD_1_BOULDER_ON_SWITCH
 ; fallthrough
@@ -76,6 +98,7 @@ VictoryRoad2F_TextPointers:
 	dw_const VictoryRoad2FSuperNerd2Text,   TEXT_VICTORYROAD2F_SUPER_NERD2
 	dw_const VictoryRoad2FSuperNerd3Text,   TEXT_VICTORYROAD2F_SUPER_NERD3
 	dw_const VictoryRoad2FMoltresText,      TEXT_VICTORYROAD2F_MOLTRES
+	dw_const VictoryRoad2FGalarianMoltresText,      TEXT_VICTORYROAD2F_GALARIANMOLTRES
 	dw_const PickUpItemText,                TEXT_VICTORYROAD2F_TM_SUBMISSION
 	dw_const PickUpItemText,                TEXT_VICTORYROAD2F_FULL_HEAL
 	dw_const PickUpItemText,                TEXT_VICTORYROAD2F_TM_MEGA_KICK
@@ -89,7 +112,7 @@ VictoryRoad2TrainerHeaders:
 VictoryRoad2TrainerHeader0:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_0, 4, VictoryRoad2FHikerBattleText, VictoryRoad2FHikerEndBattleText, VictoryRoad2FHikerAfterBattleText
 VictoryRoad2TrainerHeader1:
-	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_1, 3, VictoryRoad2FSuperNerd1BattleText, VictoryRoad2FSuperNerd1EndBattleText, VictoryRoad2FSuperNerd1AfterBattleText
+	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_1, 1, VictoryRoad2FSuperNerd1BattleText, VictoryRoad2FSuperNerd1EndBattleText, VictoryRoad2FSuperNerd1AfterBattleText
 VictoryRoad2TrainerHeader2:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_2, 3, VictoryRoad2FCooltrainerMBattleText, VictoryRoad2FCooltrainerMEndBattleText, VictoryRoad2FCooltrainerMAfterBattleText
 VictoryRoad2TrainerHeader3:
@@ -98,6 +121,8 @@ VictoryRoad2TrainerHeader4:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_4, 3, VictoryRoad2FSuperNerd3BattleText, VictoryRoad2FSuperNerd3EndBattleText, VictoryRoad2FSuperNerd3AfterBattleText
 MoltresTrainerHeader:
 	trainer EVENT_BEAT_MOLTRES, 0, VictoryRoad2FMoltresBattleText, VictoryRoad2FMoltresBattleText, VictoryRoad2FMoltresBattleText
+GalarianMoltresTrainerHeader:
+	trainer EVENT_BEAT_GALARIANMOLTRES, 0, VictoryRoad2FGalarianMoltresBattleText, VictoryRoad2FGalarianMoltresBattleText, VictoryRoad2FGalarianMoltresBattleText
 	db -1 ; end
 
 VictoryRoad2FHikerText:
@@ -203,3 +228,17 @@ VictoryRoad2FSuperNerd3EndBattleText:
 VictoryRoad2FSuperNerd3AfterBattleText:
 	text_far _VictoryRoad2FSuperNerd3AfterBattleText
 	text_end
+
+VictoryRoad2FGalarianMoltresText:
+	text_asm
+	ld hl, GalarianMoltresTrainerHeader
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VictoryRoad2FGalarianMoltresBattleText:
+	text_far _VictoryRoad2FGalarianMoltresBattleText
+	text_asm
+	ld a, MOLTRESG
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd

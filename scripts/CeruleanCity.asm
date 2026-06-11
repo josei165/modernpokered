@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	ret nz
 ENDC
 	ld a, [wObtainedBadges]
-	bit BIT_VOLCANOBADGE, a
+	bit BIT_EARTHBADGE, a
 	jr z, .skipHideCaveGuy
 	ld a, TOGGLE_CERULEAN_CAVE_GUY
 	ld [wToggleableObjectIndex], a

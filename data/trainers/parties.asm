@@ -149,14 +149,14 @@ SailorData:
 JrTrainerMData:
 ; Pewter Gym
 	db 11, DIGLETT, SANDSHREW, 0
-; Route 24/Route 25
+; Route 24
 	db 14, RATTATA, EKANS, 0
 ; Route 24
 	db 18, MANKEY, 0
 ; Route 6
 	db 20, SQUIRTLE, 0
 	db 16, SPEAROW, RATICATE, 0
-; Unused
+; Route 25
 	db 18, DIGLETT, DIGLETT, SANDSHREW, 0
 ; Route 9
 	db 21, GROWLITHE, CHARMANDER, 0
@@ -250,12 +250,14 @@ HikerData:
 ; Rock Tunnel B1F
 	db 21, GEODUDE, GEODUDE, GRAVELER, 0
 	db 25, GEODUDE, 0
-; Route 9/Rock Tunnel B1F
+; Route 9
 	db 20, MACHOP, ONIX, 0
 ; Rock Tunnel 1F
 	db 19, GEODUDE, MACHOP, GEODUDE, GEODUDE, 0
 	db 20, ONIX, ONIX, GEODUDE, 0
 	db 21, GEODUDE, GRAVELER, 0
+; Rock Tunnel B1F
+	db 30, MACHOP, ONIX, 0
 
 BikerData:
 ; Route 13
@@ -508,12 +510,12 @@ ChiefData:
 ; none
 
 ScientistData:
-; Unused
+; Mansion 1F
 	db 34, KOFFING, VOLTORB, 0
 ; Silph Co. 2F
 	db 26, GRIMER, WEEZING, KOFFING, WEEZING, 0
 	db 28, MAGNEMITE, VOLTORB, MAGNETON, 0
-; Silph Co. 3F/Mansion 1F
+; Silph Co. 3F
 	db 29, ELECTRODE, WEEZING, 0
 ; Silph Co. 4F
 	db 33, ELECTRODE, 0
@@ -666,9 +668,9 @@ GentlemanData:
 ; SS Anne 1F Rooms
 	db 18, GROWLITHE, GROWLITHE, 0
 	db 19, NIDORAN_M, NIDORAN_F, 0
-; SS Anne 2F Rooms/Vermilion Gym
+; SS Anne 2F Rooms
 	db 23, PIKACHU, 0
-; Unused
+; Vermilion Gym
 	db 48, PRIMEAPE, 0
 ; SS Anne 2F Rooms
 	db 17, GROWLITHE, PONYTA, 0

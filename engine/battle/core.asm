@@ -2252,7 +2252,7 @@ DisplayBattleMenu::
 .throwSafariBallWasSelected
 	ld a, SAFARI_BALL
 	ld [wCurItem], a
-	jr UseBagItem
+	jp UseBagItem
 
 .upperLeftMenuItemWasNotSelected ; a menu item other than the upper left item was selected
 	cp $2
@@ -2289,8 +2289,19 @@ BagWasSelected:
 	call DrawHUDsAndHPBars
 .next
 	ld a, [wBattleType]
-	dec a ; is it the old man tutorial?
-	jr nz, DisplayPlayerBag ; no, it is a normal battle
+	cp BATTLE_TYPE_OLD_MAN ; is it the old man battle?
+	jr z, .simulatedInputBattle
+
+	ld a, [wIsInBattle] ; Check if this is a wild battle or trainer battle
+	dec a
+	jr z, .NormalMode ; Not a trainer battle
+
+	ld hl, ItemsCantBeUsedHereText ; items can't be used during trainer battles
+	call PrintText
+	jp DisplayBattleMenu
+.NormalMode
+	jr DisplayPlayerBag ; no, it is a normal battle
+.simulatedInputBattle
 	ld hl, OldManItemList
 	ld a, l
 	ld [wListPointer], a

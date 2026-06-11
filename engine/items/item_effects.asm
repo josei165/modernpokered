@@ -124,6 +124,13 @@ ItemUseBall:
 	ld a, [wBoxCount] ; is box full?
 	cp MONS_PER_BOX
 	jp z, BoxFullCannotThrowBall
+	callfar GetLevelCap
+	ld a, [wMaxLevel]
+	ld b, a
+	ld a, [wEnemyMonLevel]
+	dec a ; force a carry if values are equal
+	cp b
+	jp nc, TooStrongToCatch
 
 .canUseBall
 	xor a
@@ -1338,9 +1345,14 @@ ItemUseMedicine:
 	push hl
 	ld bc, MON_LEVEL
 	add hl, bc ; hl now points to level
+	push hl ; store mon's level
+	callfar GetLevelCap
+	ld a, [wMaxLevel]
+	ld b, a
+	pop hl ; retrieve mon's level
 	ld a, [hl] ; a = level
-	cp MAX_LEVEL
-	jr z, .vitaminNoEffect ; can't raise level above 100
+	cp b ; level cap
+	jr nc, .vitaminNoEffect ; can't raise level above cap
 	inc a
 	ld [hl], a ; store incremented level
 	ld [wCurEnemyLevel], a
@@ -2300,6 +2312,11 @@ ItemUseNotTime:
 	ld hl, ItemUseNotTimeText
 	jr ItemUseFailed
 
+TooStrongToCatch:
+	ld hl, TooStrongToCatchText
+	jr ItemUseFailed
+
+
 ItemUseNotYoursToUse:
 	ld hl, ItemUseNotYoursToUseText
 	jr ItemUseFailed
@@ -2335,6 +2352,10 @@ ItemUseFailed:
 
 ItemUseNotTimeText:
 	text_far _ItemUseNotTimeText
+	text_end
+
+TooStrongToCatchText:
+	text_far _TooStrongToCatchText
 	text_end
 
 ItemUseNotYoursToUseText:

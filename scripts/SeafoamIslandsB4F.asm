@@ -1,8 +1,30 @@
 SeafoamIslandsB4F_Script:
 	call EnableAutoTextBoxDrawing
+	call SeafoamIslandsB4FArticunoSelectScript
 	ld a, [wSeafoamIslandsB4FCurScript]
 	ld hl, SeafoamIslandsB4F_ScriptPointers
 	jp CallFunctionInTable
+
+SeafoamIslandsB4FArticunoSelectScript:
+	CheckEvent EVENT_BEAT_ARTICUNO
+	ret nz
+	CheckEvent EVENT_BEAT_GALARIANARTICUNO
+	ret nz
+	CheckEvent EVENT_SEAFOAMISLANDS_ARTICUNO_SELECTED
+	ret nz
+	SetEvent EVENT_SEAFOAMISLANDS_ARTICUNO_SELECTED
+	call Random
+	cp 50 percent + 1
+	jr c, .hideGalarian
+	ld a, TOGGLE_ARTICUNO
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
+.hideGalarian
+	ld a, TOGGLE_GALARIANARTICUNO
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
 
 SeafoamIslandsB4FResetScript:
 	xor a
@@ -137,6 +159,7 @@ SeafoamIslandsB4F_TextPointers:
 	dw_const BoulderText,                       TEXT_SEAFOAMISLANDSB4F_BOULDER1
 	dw_const BoulderText,                       TEXT_SEAFOAMISLANDSB4F_BOULDER2
 	dw_const SeafoamIslandsB4FArticunoText,     TEXT_SEAFOAMISLANDSB4F_ARTICUNO
+	dw_const SeafoamIslandsB4FGalarianArticunoText,     TEXT_SEAFOAMISLANDSB4F_GALARIANARTICUNO
 	dw_const SeafoamIslandsB4FBouldersSignText, TEXT_SEAFOAMISLANDSB4F_BOULDERS_SIGN
 	dw_const SeafoamIslandsB4FDangerSignText,   TEXT_SEAFOAMISLANDSB4F_DANGER_SIGN
 
@@ -146,6 +169,8 @@ SeafoamIslandsB4F_TextPointers:
 	def_trainers 2
 ArticunoTrainerHeader:
 	trainer EVENT_BEAT_ARTICUNO, 0, SeafoamIslandsB4FArticunoBattleText, SeafoamIslandsB4FArticunoBattleText, SeafoamIslandsB4FArticunoBattleText
+GalarianArticunoTrainerHeader:
+	trainer EVENT_BEAT_GALARIANARTICUNO, 0, SeafoamIslandsB4FGalarianArticunoBattleText, SeafoamIslandsB4FGalarianArticunoBattleText, SeafoamIslandsB4FGalarianArticunoBattleText
 	db -1 ; end
 
 SeafoamIslandsB4FArticunoText:
@@ -160,6 +185,23 @@ SeafoamIslandsB4FArticunoBattleText:
 	text_far _SeafoamIslandsB4FArticunoBattleText
 	text_asm
 	ld a, ARTICUNO
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
+
+
+SeafoamIslandsB4FGalarianArticunoText:
+	text_asm
+	ld hl, GalarianArticunoTrainerHeader
+	call TalkToTrainer
+	ld a, SCRIPT_SEAFOAMISLANDSB4F_OBJECT_MOVING3
+	ld [wSeafoamIslandsB4FCurScript], a
+	jp TextScriptEnd
+
+SeafoamIslandsB4FGalarianArticunoBattleText:
+	text_far _SeafoamIslandsB4FGalarianArticunoBattleText
+	text_asm
+	ld a, ARTICUNOG
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd

@@ -134,7 +134,7 @@ SilphCo9F_TextPointers:
 SilphCo9TrainerHeaders:
 	def_trainers 2
 SilphCo9TrainerHeader0:
-	trainer EVENT_BEAT_SILPH_CO_9F_TRAINER_0, 1, SilphCo9FRocket1BattleText, SilphCo9FRocket1EndBattleText, SilphCo9FRocket1AfterBattleText
+	trainer EVENT_BEAT_SILPH_CO_9F_TRAINER_0, 2, SilphCo9FRocket1BattleText, SilphCo9FRocket1EndBattleText, SilphCo9FRocket1AfterBattleText
 SilphCo9TrainerHeader1:
 	trainer EVENT_BEAT_SILPH_CO_9F_TRAINER_1, 2, SilphCo9FScientistBattleText, SilphCo9FScientistEndBattleText, SilphCo9FScientistAfterBattleText
 SilphCo9TrainerHeader2:

@@ -193,7 +193,7 @@ ViridianGymTrainerHeader1:
 ViridianGymTrainerHeader2:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_2, 4, ViridianGymRocker1BattleText, ViridianGymRocker1EndBattleText, ViridianGymRocker1AfterBattleText
 ViridianGymTrainerHeader3:
-	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_3, 2, ViridianGymHiker2BattleText, ViridianGymHiker2EndBattleText, ViridianGymHiker2AfterBattleText
+	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_3, 3, ViridianGymHiker2BattleText, ViridianGymHiker2EndBattleText, ViridianGymHiker2AfterBattleText
 ViridianGymTrainerHeader4:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_4, 3, ViridianGymCooltrainerM2BattleText, ViridianGymCooltrainerM2EndBattleText, ViridianGymCooltrainerM2AfterBattleText
 ViridianGymTrainerHeader5:
@@ -201,7 +201,7 @@ ViridianGymTrainerHeader5:
 ViridianGymTrainerHeader6:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_6, 3, ViridianGymRocker2BattleText, ViridianGymRocker2EndBattleText, ViridianGymRocker2AfterBattleText
 ViridianGymTrainerHeader7:
-	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7, 4, ViridianGymCooltrainerM3BattleText, ViridianGymCooltrainerM3EndBattleText, ViridianGymCooltrainerM3AfterBattleText
+	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7, 1, ViridianGymCooltrainerM3BattleText, ViridianGymCooltrainerM3EndBattleText, ViridianGymCooltrainerM3AfterBattleText
 	db -1 ; end
 
 ViridianGymGiovanniText:

@@ -2,11 +2,21 @@ Route20_Script:
 	CheckAndResetEvent EVENT_IN_SEAFOAM_ISLANDS
 	call nz, Route20BoulderScript
 	call EnableAutoTextBoxDrawing
+	call Route20GuardCheck
 	ld hl, Route20TrainerHeaders
 	ld de, Route20_ScriptPointers
 	ld a, [wRoute20CurScript]
 	call ExecuteCurMapScriptInTable
 	ld [wRoute20CurScript], a
+	ret
+
+Route20GuardCheck:
+	ld a, [wObtainedBadges]
+	bit BIT_EARTHBADGE, a
+	ret z
+	ld a, TOGGLE_ROUTE20_GUARD
+	ld [wToggleableObjectIndex], a
+	predef HideObject
 	ret
 
 Route20BoulderScript:
@@ -74,8 +84,10 @@ Route20_TextPointers:
 	dw_const Route20Swimmer7Text,           TEXT_ROUTE20_SWIMMER7
 	dw_const Route20Swimmer8Text,           TEXT_ROUTE20_SWIMMER8
 	dw_const Route20Swimmer9Text,           TEXT_ROUTE20_SWIMMER9
+	dw_const Route20GuardText, TEXT_ROUTE20_GUARD
 	dw_const Route20SeafoamIslandsSignText, TEXT_ROUTE20_SEAFOAM_ISLANDS_WEST_SIGN
 	dw_const Route20SeafoamIslandsSignText, TEXT_ROUTE20_SEAFOAM_ISLANDS_EAST_SIGN
+	
 
 Route20TrainerHeaders:
 	def_trainers
@@ -283,4 +295,8 @@ Route20Swimmer9AfterBattleText:
 
 Route20SeafoamIslandsSignText:
 	text_far _Route20SeafoamIslandsSignText
+	text_end
+
+Route20GuardText:
+	text_far _Route20GuardText
 	text_end

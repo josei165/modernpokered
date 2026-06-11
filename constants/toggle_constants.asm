@@ -182,6 +182,7 @@ ENDM
 	const TOGGLE_VICTORY_ROAD_2F_ITEM_3        ; 5E X
 	const TOGGLE_VICTORY_ROAD_2F_ITEM_4        ; 5F X
 	const TOGGLE_VICTORY_ROAD_2F_BOULDER       ; 60
+	const TOGGLE_GALARIANMOLTRES                       ; 5B X
 
 	toggle_consts_for BILLS_HOUSE
 	const TOGGLE_BILL_POKEMON                  ; 61
@@ -363,6 +364,7 @@ ENDM
 	const TOGGLE_MEWTWO                        ; D1 X
 	const TOGGLE_CERULEAN_CAVE_B1F_ITEM_1      ; D2 X
 	const TOGGLE_CERULEAN_CAVE_B1F_ITEM_2      ; D3 X
+	const TOGGLE_MEW                        ; D1 X
 
 	toggle_consts_for VICTORY_ROAD_1F
 	const TOGGLE_VICTORY_ROAD_1F_ITEM_1        ; D4 X
@@ -393,6 +395,7 @@ ENDM
 	const TOGGLE_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E1
 	const TOGGLE_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; E2
 	const TOGGLE_ARTICUNO                      ; E3 X
+	const TOGGLE_GALARIANARTICUNO                      ; E3 X
 
 	toggle_consts_for VIRIDIAN_FOREST_SOUTH_GATE
 	const TOGGLE_VIRIDIAN_FOREST_SOUTH_GATE_OAKS_AIDE ; E4
@@ -411,5 +414,11 @@ ENDM
 
 	toggle_consts_for LAVENDER_TOWN
 	const TOGGLE_LAVENDERTOWN_TOWER_GUARD
+
+	toggle_consts_for ROUTE_20
+	const TOGGLE_ROUTE20_GUARD
+
+	toggle_consts_for ROUTE_10
+	const TOGGLE_ROUTE10_GUARD
 
 DEF NUM_TOGGLEABLE_OBJECTS EQU const_value

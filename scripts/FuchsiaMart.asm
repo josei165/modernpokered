@@ -16,4 +16,4 @@ FuchsiaMartCooltrainerFText:
 	text_end
 
 FuchsiaMartClerkText:
-	script_mart ULTRA_BALL, GREAT_BALL, SUPER_POTION, REVIVE, FULL_HEAL, SUPER_REPEL
+	script_mart MASTER_BALL, FULL_RESTORE, FULL_HEAL, MAX_REVIVE, MAX_ELIXER, MAX_REPEL, RARE_CANDY

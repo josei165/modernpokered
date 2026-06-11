@@ -37,4 +37,4 @@ IndigoPlateauLobbyLinkReceptionistText:
 	script_cable_club_receptionist
 
 IndigoPlateauLobbyClerkText:
-	script_mart ULTRA_BALL, GREAT_BALL, FULL_RESTORE, MAX_POTION, FULL_HEAL, REVIVE, MAX_REPEL
+	script_mart MASTER_BALL, FULL_RESTORE, FULL_HEAL, MAX_REVIVE, MAX_ELIXER, MAX_REPEL, RARE_CANDY

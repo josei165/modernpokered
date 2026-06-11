@@ -117,7 +117,9 @@ GainExperience:
 	ld a, [hl]
 	ld [wCurSpecies], a
 	call GetMonHeader
-	ld d, MAX_LEVEL
+	callfar GetLevelCap
+	ld a, [wMaxLevel]
+	ld d, a
 	callfar CalcExperience ; get max exp
 ; compare max exp with current exp
 	ldh a, [hExperience]
@@ -371,3 +373,40 @@ GrewLevelText:
 	text_far _GrewLevelText
 	sound_level_up
 	text_end
+
+; function to count the set bits in wObtainedBadges
+; returns the number of badges in wNumSetBits
+GetBadgesObtained::
+	push de
+	ld hl, wObtainedBadges
+	ld b, $1
+	call CountSetBits
+	pop de
+	ret
+
+; returns the level cap in wMaxLevel
+GetLevelCap::	
+	CheckEvent EVENT_BEAT_CHAMPION_FOR_POSTGAME
+	ld a, 100
+	jr nz, .storeValue
+	call GetBadgesObtained
+	ld a, [wNumSetBits]
+	ld hl, BadgeLevelRestrictions
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+.storeValue
+	ld [wMaxLevel], a
+	ret
+
+BadgeLevelRestrictions:
+    db 14 ; Onix
+    db 21 ; Starmie
+    db 24 ; Raichu
+    db 29 ; Vileplume
+    db 43 ; Alakazam
+    db 43 ; Weezing
+    db 47 ; Arcanine
+    db 50 ; Rhydon
+    db 65 ; Champion's starter

@@ -16,4 +16,4 @@ VermilionMartCooltrainerFText:
 	text_end
 
 VermilionMartClerkText:
-	script_mart TM_DOUBLE_TEAM, HM_STRENGTH, ICE_HEAL, AWAKENING, PARLYZ_HEAL, REPEL
+	script_mart MASTER_BALL, FULL_RESTORE, FULL_HEAL, MAX_REVIVE, MAX_ELIXER, MAX_REPEL, RARE_CANDY

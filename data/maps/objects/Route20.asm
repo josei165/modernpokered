@@ -9,6 +9,7 @@
 	const_export ROUTE20_SWIMMER7
 	const_export ROUTE20_SWIMMER8
 	const_export ROUTE20_SWIMMER9
+	const_export ROUTE20_GUARD
 
 Route20_Object:
 	db $43 ; border block
@@ -32,5 +33,6 @@ Route20_Object:
 	object_event 12, 16, SPRITE_SWIMMER, STAY, UP, TEXT_ROUTE20_SWIMMER7, OPP_BEAUTY, 7
 	object_event  9, 14, SPRITE_SWIMMER, STAY, DOWN, TEXT_ROUTE20_SWIMMER8, OPP_JR_TRAINER_F, 16
 	object_event  7, 16, SPRITE_SWIMMER, STAY, UP, TEXT_ROUTE20_SWIMMER9, OPP_BEAUTY, 8
+	object_event 58,  10, SPRITE_GAMBLER, STAY, DOWN, TEXT_ROUTE20_GUARD
 
 	def_warps_to ROUTE_20

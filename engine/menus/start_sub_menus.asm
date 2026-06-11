@@ -193,8 +193,6 @@ StartMenu_Pokemon::
 	text_far _FlashLightsAreaText
 	text_end
 .dig
-	bit BIT_SOULBADGE, a
-	jp z, .newBadgeRequired
 	ld a, ESCAPE_ROPE
 	ld [wCurItem], a
 	ld [wPseudoItemID], a
@@ -205,8 +203,6 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .teleport
-	bit BIT_SOULBADGE, a
-	jp z, .newBadgeRequired
 	call CheckIfInOutsideMap
 	jr z, .canTeleport
 	ld a, [wWhichPokemon]

@@ -1,10 +1,32 @@
 PowerPlant_Script:
 	call EnableAutoTextBoxDrawing
+	call PowerPlantZapdosSelectScript
 	ld hl, PowerPlantTrainerHeaders
 	ld de, PowerPlant_ScriptPointers
 	ld a, [wPowerPlantCurScript]
 	call ExecuteCurMapScriptInTable
 	ld [wPowerPlantCurScript], a
+	ret
+
+PowerPlantZapdosSelectScript:
+	CheckEvent EVENT_BEAT_ZAPDOS
+	ret nz
+	CheckEvent EVENT_BEAT_GALARIANZAPDOS
+	ret nz
+	CheckEvent EVENT_POWERPLANT_ZAPDOS_SELECTED
+	ret nz
+	SetEvent EVENT_POWERPLANT_ZAPDOS_SELECTED
+	call Random
+	cp 50 percent + 1
+	jr c, .hideGalarian
+	ld a, TOGGLE_ZAPDOS
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
+.hideGalarian
+	ld a, TOGGLE_GALARIANZAPDOS
+	ld [wToggleableObjectIndex], a
+	predef HideObject
 	ret
 
 PowerPlant_ScriptPointers:

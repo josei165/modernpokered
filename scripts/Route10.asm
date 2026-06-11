@@ -1,11 +1,22 @@
 Route10_Script:
 	call EnableAutoTextBoxDrawing
+	call Route10GuardCheck
 	ld hl, Route10TrainerHeaders
 	ld de, Route10_ScriptPointers
 	ld a, [wRoute10CurScript]
 	call ExecuteCurMapScriptInTable
 	ld [wRoute10CurScript], a
 	ret
+
+Route10GuardCheck:
+	ld a, [wObtainedBadges]
+	bit BIT_EARTHBADGE, a
+	ret z
+	ld a, TOGGLE_ROUTE10_GUARD
+	ld [wToggleableObjectIndex], a
+	predef HideObject
+	ret
+
 
 Route10_ScriptPointers:
 	def_script_pointers
@@ -21,6 +32,7 @@ Route10_TextPointers:
 	dw_const Route10CooltrainerF1Text,  TEXT_ROUTE10_COOLTRAINER_F1
 	dw_const Route10Hiker2Text,         TEXT_ROUTE10_HIKER2
 	dw_const Route10CooltrainerF2Text,  TEXT_ROUTE10_COOLTRAINER_F2
+	dw_const Route10GuardText,  	    TEXT_ROUTE10_GUARD
 	dw_const Route10RockTunnelSignText, TEXT_ROUTE10_ROCKTUNNEL_NORTH_SIGN
 	dw_const PokeCenterSignText,        TEXT_ROUTE10_POKECENTER_SIGN
 	dw_const Route10RockTunnelSignText, TEXT_ROUTE10_ROCKTUNNEL_SOUTH_SIGN
@@ -155,5 +167,9 @@ Route10RockTunnelSignText:
 	text_end
 
 Route10PowerPlantSignText:
+	text_far _Route10PowerPlantSignText
+	text_end
+
+Route10GuardText:
 	text_far _Route10PowerPlantSignText
 	text_end

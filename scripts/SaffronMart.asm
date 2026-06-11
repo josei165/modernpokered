@@ -16,4 +16,4 @@ SaffronMartCooltrainerFText:
 	text_end
 
 SaffronMartClerkText:
-	script_mart GREAT_BALL, HYPER_POTION, MAX_REPEL, ESCAPE_ROPE, FULL_HEAL, REVIVE
+	script_mart MASTER_BALL, FULL_RESTORE, FULL_HEAL, MAX_REVIVE, MAX_ELIXER, MAX_REPEL, RARE_CANDY

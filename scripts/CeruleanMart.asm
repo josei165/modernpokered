@@ -16,4 +16,4 @@ CeruleanMartCooltrainerFText:
 	text_end
 
 CeruleanMartClerkText:
-	script_mart POKE_BALL, POTION, REPEL, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL
+	script_mart MASTER_BALL, FULL_RESTORE, FULL_HEAL, MAX_REVIVE, MAX_ELIXER, MAX_REPEL, RARE_CANDY
