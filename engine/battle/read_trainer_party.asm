@@ -114,6 +114,23 @@ ReadTrainer:
 	ld a, [de]
 	inc de
 	ld [hl], a
+	dec a
+	push hl
+	push de
+	ld hl, Moves
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld de, wMoveData
+	ld a, BANK(Moves)
+	call FarCopyData; Copy bc bytes from a:hl to de.
+	pop de
+	pop hl
+	ld a, wEnemyMon1PP - wEnemyMon1Moves
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wMoveData + MOVE_PP] ; a now holds the Max PP for the move
+	ld [hl], a ; PP written
 	jr .writeAdditionalMoveDataLoop
 .loopSkipTrainer
 	ld a, [hli]

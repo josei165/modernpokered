@@ -8,6 +8,8 @@ ViridianPokecenter_TextPointers:
 	dw_const ViridianPokecenterGentlemanText,        TEXT_VIRIDIANPOKECENTER_GENTLEMAN
 	dw_const ViridianPokecenterCooltrainerMText,     TEXT_VIRIDIANPOKECENTER_COOLTRAINER_M
 	dw_const ViridianPokecenterLinkReceptionistText, TEXT_VIRIDIANPOKECENTER_LINK_RECEPTIONIST
+	dw MoveDeleterText1
+	dw MoveRelearnerText1
 
 ViridianPokecenterNurseText:
 	script_pokecenter_nurse

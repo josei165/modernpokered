@@ -57,7 +57,8 @@ CeladonCityGramps3Text:
 	jr nz, .gotTM41
 	ld hl, .Text
 	call PrintText
-	lb bc, TM_SOFTBOILED, 1
+	;lb bc, TM_SOFTBOILED, 1
+	lb bc, TM_THUNDER, 1
 	call GiveItem
 	jr c, .Success
 	ld hl, .TM41NoRoomText

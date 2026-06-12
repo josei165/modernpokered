@@ -166,6 +166,9 @@ AttackAnimationPointers:
 	dw SubstituteAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
+
+AlternativeAnimationPointers:
+	table_width 2
 	dw ShowPicAnim
 	dw EnemyFlashAnim
 	dw PlayerFlashAnim
@@ -203,7 +206,7 @@ AttackAnimationPointers:
 	dw HidePicAnim
 	dw ThrowRockAnim
 	dw ThrowBaitAnim
-	assert_table_length NUM_ATTACK_ANIMS
+	assert_table_length NUM_ALTERNATIVE_ANIMS
 	dw ZigZagScreenAnim
 
 ; each animation is a list of subanimations
@@ -980,7 +983,7 @@ KinesisAnim:
 
 SoftboiledAnim:
 	battle_anim LEECH_SEED, SE_SLIDE_MON_HALF_OFF
-	battle_anim SOFTBOILED, SUBANIM_0_EGG_SHAKING, 0, 8
+	battle_anim SLACK_OFF, SUBANIM_0_EGG_SHAKING, 0, 8
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE

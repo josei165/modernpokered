@@ -520,7 +520,7 @@ HandlePoisonBurnLeechSeed:
 	xor a
 	ld [wAnimationType], a
 	ld a, BURN_PSN_ANIM
-	call PlayMoveAnimation   ; play burn/poison animation
+	call PlayAltAnimation    ; play burn/poison animation
 	pop hl
 	call HandlePoisonBurnLeechSeed_DecreaseOwnHP
 .notBurnedOrPoisoned
@@ -1846,7 +1846,7 @@ SendOutMon:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	ld a, POOF_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	hlcoord 4, 11
 	predef AnimateSendingOutMon
 	ld a, [wCurPartySpecies]
@@ -2589,6 +2589,8 @@ MoveSelectionMenu:
 	ret
 
 .regularmenu
+ 	xor a
+	ld e, a 
 	call AnyMoveToSelect
 	ret z
 	ld hl, wBattleMonMoves
@@ -2818,11 +2820,23 @@ SelectMenuItem_CursorDown:
 
 AnyMoveToSelect:
 ; return z and Struggle as the selected move if all moves have 0 PP and/or are disabled
+	ld a, e
+	and a
+	ld hl, wPlayerSelectedMove
+	jr z, .playerTurn
+	ld hl, wEnemySelectedMove
+.playerTurn
 	ld a, STRUGGLE
-	ld [wPlayerSelectedMove], a
-	ld a, [wPlayerDisabledMove]
+	ld [hl], a
+	ld a, e
 	and a
 	ld hl, wBattleMonPP
+	ld a, [wPlayerDisabledMove]
+	jr z, .playerTurn2
+	ld hl, wEnemyMonPP
+	ld a, [wEnemyDisabledMove]
+.playerTurn2
+	and a
 	jr nz, .handleDisabledMove
 	ld a, [hli]
 	or [hl]
@@ -2852,11 +2866,20 @@ AnyMoveToSelect:
 	and $3f ; any PP left?
 	ret nz ; return if a move has PP left
 .noMovesLeft
+;;;If Enemy, don't display the "No Moves Left Text"
+	ld a, e
+	and a
+	jr z, .playerTurn3
+	xor a
+	and a ;set the z flag again because checking whose turn it was overwrote it
+	ret
+.playerTurn3
 	ld hl, NoMovesLeftText
 	call PrintText
 	ld c, 60
 	call DelayFrames
 	xor a
+	and a ;set the z flag again because checking whose turn it was overwrote it
 	ret
 
 NoMovesLeftText:
@@ -3041,7 +3064,7 @@ SelectEnemyMove:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	jr .done
+	jp .done
 .noLinkBattle
 	ld a, [wEnemyBattleStatus2]
 	and (1 << NEEDS_TO_RECHARGE) | (1 << USING_RAGE) ; need to recharge or using rage
@@ -3063,15 +3086,11 @@ SelectEnemyMove:
 	ld a, $ff
 	jr .done
 .canSelectMove
-	ld hl, wEnemyMonMoves+1 ; 2nd enemy move
-	ld a, [hld]
-	and a
-	jr nz, .atLeastTwoMovesAvailable
-	ld a, [wEnemyDisabledMove]
-	and a
-	ld a, STRUGGLE ; struggle if the only move is disabled
-	jr nz, .done
-.atLeastTwoMovesAvailable
+ 	ld a, 1
+	ld e, a
+	call AnyMoveToSelect
+	jr z, .done2
+	ld hl, wEnemyMonMoves 
 	ld a, [wIsInBattle]
 	dec a
 	jr z, .chooseRandomMove ; wild encounter
@@ -3096,6 +3115,20 @@ SelectEnemyMove:
 	ld a, b
 	dec a
 	ld [wEnemyMoveListIndex], a
+	push hl
+	push bc
+	ld b, 0
+	ld c, a
+	ld hl, wEnemyMonPP
+	add hl, bc
+	ld a, [hl]
+	pop bc
+	pop hl
+	and a
+	jr nz, .disabledCheck
+	pop hl
+	jr z, .chooseRandomMove
+.disabledCheck
 	ld a, [wEnemyDisabledMove]
 	swap a
 	and $f
@@ -3107,6 +3140,7 @@ SelectEnemyMove:
 	jr z, .chooseRandomMove ; move non-existent, try again
 .done
 	ld [wEnemySelectedMove], a
+.done2 ;if jumping from after AnyMoveToSelect, wEnemySelectedMove has already been set to STRUGGLE
 	ret
 .linkedOpponentUsedStruggle
 	ld a, STRUGGLE
@@ -3302,7 +3336,7 @@ PlayerCheckIfFlyOrChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 MirrorMoveCheck:
 	ld a, [wPlayerMoveEffect]
 	cp MIRROR_MOVE_EFFECT
@@ -3451,7 +3485,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, SLP_PLAYER_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	ld hl, FastAsleepText
 	call PrintText
 	jr .sleepDone
@@ -3536,7 +3570,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, CONF_PLAYER_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	call BattleRandom
 	cp 50 percent + 1 ; chance to hurt itself
 	jr c, .TriedToUseDisabledMoveCheck
@@ -3586,7 +3620,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 .NotFlyOrChargeEffect
 	ld hl, ExecutePlayerMoveDone
 	jp .returnToHL ; if using a two-turn move, we need to recharge the first turn
@@ -3681,7 +3715,7 @@ CheckPlayerStatusConditions:
 .RageCheck
 	ld a, [wPlayerBattleStatus2]
 	bit USING_RAGE, a ; is mon using rage?
-	jp z, .checkPlayerStatusConditionsDone ; if we made it this far, mon can move normally this turn
+	jp z, .TriedToUseNoPPMoveCheck
 	ld a, RAGE
 	ld [wNamedObjectIndex], a
 	call GetMoveName
@@ -3690,6 +3724,21 @@ CheckPlayerStatusConditions:
 	ld [wPlayerMoveEffect], a
 	ld hl, PlayerCanExecuteMove
 	jp .returnToHL
+
+.TriedToUseNoPPMoveCheck
+	ld a, [wPlayerSelectedMove]
+	cp STRUGGLE
+	jr z, .checkPlayerStatusConditionsDone ; if Struggle, don't check PP
+	ld a, [wPlayerMoveListIndex] ;0-3
+	ld c, a
+	ld b, 0
+	ld hl, wBattleMonPP
+	add hl, bc
+	ld a, [hl]
+	cp 0
+	jr nz, .checkPlayerStatusConditionsDone ; we can normally move this turn
+	call PrintMoveHasNoPPText ;User's Move has no PP left!
+	ld hl, ExecutePlayerMoveDone ; player can't move this turn
 
 .returnToHL
 	xor a
@@ -3780,6 +3829,28 @@ PrintMoveIsDisabledText:
 
 MoveIsDisabledText:
 	text_far _MoveIsDisabledText
+	text_end
+
+PrintMoveHasNoPPText:
+	ld hl, wPlayerSelectedMove
+	ld de, wPlayerBattleStatus1
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .playerTurn
+	inc hl
+	ld de, wEnemyBattleStatus1
+.playerTurn
+	ld a, [de]
+	res CHARGING_UP, a ;SolarBeam PP taken on Turn 2 in Gen 1. Spite can kill SolarBeam. if we don't clear the charging flag, it will get stuck
+	ld [de], a
+	ld a, [hl]
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	ld hl, MoveHasNoPPText
+	jp PrintText
+	
+MoveHasNoPPText:
+	text_far _MoveHasNoPPText
 	text_end
 
 HandleSelfConfusionDamage:
@@ -5685,6 +5756,10 @@ EnemyCanExecuteMove:
 	xor a
 	ld [wMonIsDisobedient], a
 	call DisplayUsedMoveText
+	ld hl, DecrementPP
+	ld de, wEnemySelectedMove ; pointer to the move just used
+	ld b, BANK(DecrementPP)
+	call Bankswitch
 	ld a, [wEnemyMoveEffect]
 	ld hl, ResidualEffects1
 	ld de, $1
@@ -5770,7 +5845,7 @@ EnemyCheckIfFlyOrChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 EnemyCheckIfMirrorMoveEffect:
 	ld a, [wEnemyMoveEffect]
 	cp MIRROR_MOVE_EFFECT
@@ -5866,7 +5941,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, SLP_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	jr .sleepDone
 .wokeUp
 	ld hl, WokeUpText
@@ -5943,7 +6018,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, CONF_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 	call BattleRandom
 	cp $80
 	jr c, .checkIfTriedToUseDisabledMove
@@ -6028,7 +6103,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation
 .notFlyOrChargeEffect
 	ld hl, ExecuteEnemyMoveDone
 	jp .enemyReturnToHL ; if using a two-turn move, enemy needs to recharge the first turn
@@ -6119,7 +6194,7 @@ CheckEnemyStatusConditions:
 .checkIfUsingRage
 	ld a, [wEnemyBattleStatus2]
 	bit USING_RAGE, a ; is mon using rage?
-	jp z, .checkEnemyStatusConditionsDone ; if we made it this far, mon can move normally this turn
+	jp z, .TriedToUseNoPPMoveCheck
 	ld a, RAGE
 	ld [wNamedObjectIndex], a
 	call GetMoveName
@@ -6128,6 +6203,22 @@ CheckEnemyStatusConditions:
 	ld [wEnemyMoveEffect], a
 	ld hl, EnemyCanExecuteMove
 	jp .enemyReturnToHL
+
+.TriedToUseNoPPMoveCheck
+	ld a, [wEnemySelectedMove]
+	cp STRUGGLE
+	jr z, .checkEnemyStatusConditionsDone ; if Struggle, don't check PP
+	ld a, [wEnemyMoveListIndex] ;0-3
+	ld c, a
+	ld b, 0
+	ld hl, wEnemyMonPP
+	add hl, bc
+	ld a, [hl]
+	cp 0
+	jr nz, .checkEnemyStatusConditionsDone ; enemy can normally move this turn
+	call PrintMoveHasNoPPText ;User's Move has no PP left!
+	ld hl, ExecuteEnemyMoveDone ; enemy can't move this turn
+
 .enemyReturnToHL
 	xor a ; set Z flag
 	ret
@@ -6279,9 +6370,22 @@ LoadEnemyMonData:
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves ; get moves based on current level
 .loadMovePPs
+	ld a, [wIsInBattle]
+	cp $2 ; is it a trainer battle?
+	jr z, .copyPPFromEnemyPartyData
 	ld hl, wEnemyMonMoves
 	ld de, wEnemyMonPP - 1
 	predef LoadMovePPs
+	jr .loadMovePPs_2
+.copyPPFromEnemyPartyData
+	ld hl, wEnemyMon1PP ;Copy Data source
+	ld a, [wWhichPokemon]
+	ld bc, wEnemyMon2 - wEnemyMon1
+	call AddNTimes ;Copy Data Source now point to the PP of the correct Enemy Party Mon
+	ld de, wEnemyMonPP ;Copy Data Destination
+	ld bc, NUM_MOVES ;Number of Bytes to Copy
+	call CopyData
+.loadMovePPs_2 ;End of the original .loadMovePPs needs to be common to set up for the copyBaseStatsLoop properly
 	ld hl, wMonHBaseStats
 	ld de, wEnemyMonBaseStats
 	ld b, NUM_STATS
@@ -6822,6 +6926,14 @@ PlayMoveAnimation:
 	vc_hook_red Reduce_move_anim_flashing_Confusion
 	call Delay3
 	vc_hook_red Reduce_move_anim_flashing_Psychic
+; set alternative animation ID to be zero so that we use the move animations.
+	xor a
+	ld [wAltAnimationID], a
+	predef_jump MoveAnimation
+
+; call this subroutine if we are playing an alternative animation. 
+PlayAltAnimation:
+	ld [wAltAnimationID], a
 	predef_jump MoveAnimation
 
 InitBattle::

@@ -135,7 +135,7 @@ MoveNames::
 	li "CONSTRICT"
 	li "AMNESIA"
 	li "KINESIS"
-	li "SOFTBOILED"
+	li "SLACK OFF"
 	li "HI JUMP KICK"
 	li "GLARE"
 	li "DREAM EATER"

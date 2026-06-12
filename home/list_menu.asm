@@ -134,6 +134,9 @@ DisplayListMenuIDLoop::
 	call GetItemPrice
 	pop hl
 	ld a, [wListMenuID]
+	;needed to make Mateo's move deleter/relearner work
+	cp a, MOVESLISTMENU
+	jr z, .skipStoringItemName
 	cp ITEMLISTMENU
 	jr nz, .skipGettingQuantity
 	inc hl
@@ -142,8 +145,6 @@ DisplayListMenuIDLoop::
 .skipGettingQuantity
 	ld a, [wCurItem]
 	ld [wNameListIndex], a
-	ld a, ITEM_NAME
-	ld [wNameListType], a
 	ld a, BANK(ItemNames)
 	ld [wPredefBank], a
 	call GetName
@@ -162,12 +163,13 @@ DisplayListMenuIDLoop::
 .storeChosenEntry ; store the menu entry that the player chose and return
 	ld de, wNameBuffer
 	call CopyToStringBuffer
+.skipStoringItemName	;skip here if skipping storing item name
 	ld a, CHOSE_MENU_ITEM
 	ld [wMenuExitMethod], a
 	ld a, [wCurrentMenuItem]
 	ld [wChosenMenuItem], a
 	xor a
-	ldh [hJoy7], a ; joypad state update flag
+	ld [hJoy7], a ; joypad state update flag
 	ld hl, wStatusFlags5
 	res BIT_NO_TEXT_DELAY, [hl]
 	jp BankswitchBack

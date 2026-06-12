@@ -149,7 +149,7 @@ PoisonEffect:
 	cp POISON_EFFECT
 	jr z, .regularPoisonEffect
 	ld a, b
-	call PlayBattleAnimation2
+	call PlayAlternativeAnimation2
 	jp PrintText
 .regularPoisonEffect
 	call PlayCurrentMoveAnimation2
@@ -241,14 +241,14 @@ FreezeBurnParalyzeEffect:
 	ld [wEnemyMonStatus], a
 	call QuarterSpeedDueToParalysis ; quarter speed of affected mon
 	ld a, ENEMY_HUD_SHAKE_ANIM
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
 	jp PrintMayNotAttackText ; print paralysis text
 .burn1
 	ld a, 1 << BRN
 	ld [wEnemyMonStatus], a
 	call HalveAttackDueToBurn ; halve attack of affected mon
 	ld a, ENEMY_HUD_SHAKE_ANIM
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
 	ld hl, BurnedText
 	jp PrintText
 .freeze1
@@ -256,7 +256,7 @@ FreezeBurnParalyzeEffect:
 	ld a, 1 << FRZ
 	ld [wEnemyMonStatus], a
 	ld a, ENEMY_HUD_SHAKE_ANIM
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
 	ld hl, FrozenText
 	jp PrintText
 .opponentAttacker
@@ -478,6 +478,10 @@ UpdateStatDone:
 	ld de, wEnemyMoveNum
 	ld bc, wEnemyMonMinimized
 .playerTurn
+; check if we used an X-stat up item
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, .notMinimize
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .notMinimize
@@ -829,7 +833,7 @@ BideEffect:
 	ld [bc], a ; set Bide counter to 2 or 3 at random
 	ldh a, [hWhoseTurn]
 	add XSTATITEM_ANIM
-	jp PlayBattleAnimation2
+	jp PlayAlternativeAnimation2
 
 ThrashPetalDanceEffect:
 	ld hl, wPlayerBattleStatus1
@@ -1056,6 +1060,13 @@ ChargeEffect:
 	jr nz, .notFly
 	set INVULNERABLE, [hl] ; mon is now invulnerable to typical attacks (fly/dig)
 	ld b, TELEPORT ; load Teleport's animation
+;;; teleport is the only battle move animation so we handle it separately
+	xor a
+	ld [wAnimationType], a
+	ld a, b
+	call PlayBattleAnimation
+	jr .doneWithAnimations
+;;;
 .notFly
 	ld a, [de]
 	cp DIG
@@ -1066,7 +1077,8 @@ ChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, b
-	call PlayBattleAnimation
+	call PlayAlternativeAnimation
+.doneWithAnimations
 	ld a, [de]
 	ld [wChargeMoveNum], a
 	ld hl, ChargeMoveEffectText
@@ -1377,7 +1389,6 @@ DisableEffect:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	pop hl ; wEnemyMonMoves
-	jr nz, .playerTurnNotLinkBattle
 ; player's turn, Link Battle
 	push hl
 	ld hl, wEnemyMonPP
@@ -1518,6 +1529,10 @@ PlayCurrentMoveAnimation2:
 PlayBattleAnimation2:
 ; play animation ID at a and animation type 6 or 3
 	ld [wAnimationID], a
+; zero out the alternative animation
+	xor a 
+	ld [wAltAnimationID], a
+GotAnimationID:
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, ANIMATIONTYPE_SHAKE_SCREEN_HORIZONTALLY_SLOW_2
@@ -1527,11 +1542,20 @@ PlayBattleAnimation2:
 	ld [wAnimationType], a
 	jp PlayBattleAnimationGotID
 
+PlayAlternativeAnimation2:
+	ld [wAltAnimationID], a
+	jr GotAnimationID
+
 PlayCurrentMoveAnimation:
 ; animation at MOVENUM will be played unless MOVENUM is 0
 ; resets wAnimationType
 	xor a
 	ld [wAnimationType], a
+;;; check for which type of animation to play
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, PlayAlternativeAnimation
+
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPlayerMoveNum]
@@ -1540,11 +1564,14 @@ PlayCurrentMoveAnimation:
 .notEnemyTurn
 	and a
 	ret z
-; fallthrough
+;;; fallthrough
 
 PlayBattleAnimation:
 ; play animation ID at a and predefined animation type
 	ld [wAnimationID], a
+;;; zero out the alternative animation
+	xor a 
+	ld [wAltAnimationID], a
 
 PlayBattleAnimationGotID:
 ; play animation at wAnimationID
@@ -1556,3 +1583,7 @@ PlayBattleAnimationGotID:
 	pop de
 	pop hl
 	ret
+
+PlayAlternativeAnimation:
+	ld [wAltAnimationID], a
+	jr PlayBattleAnimationGotID

@@ -307,7 +307,6 @@ INCLUDE "engine/events/hidden_events/pokecenter_pc.asm"
 
 SECTION "Battle Engine 11", ROMX
 
-INCLUDE "engine/battle/decrement_pp.asm"
 INCLUDE "gfx/version.asm"
 
 
@@ -343,6 +342,7 @@ SECTION "Itemfinder 2", ROMX
 
 INCLUDE "engine/menus/league_pc.asm"
 INCLUDE "engine/events/hidden_items.asm"
+INCLUDE "engine/battle/decrement_pp.asm"
 
 MewPicFront:: INCBIN "gfx/pokemon/front/mew.pic"
 MewPicBack::  INCBIN "gfx/pokemon/back/mewb.pic"

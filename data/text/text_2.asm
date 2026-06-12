@@ -1793,3 +1793,10 @@ _CantUsePCHere:: ; new, for portablePC
 	text "You cannot use"
 	line "this here!"
 	prompt
+_MoveHasNoPPText::
+	text "<USER>'s"
+	line "@"
+	text_ram wNameBuffer
+	text " has"
+	cont "no PP left!"
+	prompt

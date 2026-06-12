@@ -13,6 +13,7 @@ DEF PHYSICAL EQU const_value
 	const GHOST        ; $08
 	const DARK         ; $09
 	const STEEL        ; $10
+	const TYPELESS        ; $11
 
 DEF UNUSED_TYPES EQU const_value
 	const_next 20
