@@ -123,6 +123,11 @@ _FellText::
 	text " fell!"
 	prompt
 
+_TeleportedAway::
+	text "<USER>"
+	line "teleported away!"
+	prompt
+
 _RanFromBattleText::
 	text "<USER>"
 	line "ran from battle!"

@@ -7,7 +7,7 @@
 	const_def
 	const NO_MOVE      ; 00
 	const POUND        ; 01
-	const KARATE_CHOP  ; 02
+	const U_TURN  ; 02
 	const DOUBLESLAP   ; 03
 	const COMET_PUNCH  ; 04
 	const MEGA_PUNCH   ; 05
@@ -171,6 +171,26 @@
 	const SUPER_FANG   ; a2
 	const SLASH        ; a3
 	const SUBSTITUTE   ; a4
+	const FEINT_ATTACK      ; a4
+	const DARK_PULSE      ; a4
+	const DRAGON_CLAW      ; a4
+	const DRAGON_PULSE      ; a4
+	const VOLT_SWITCH      ; a4
+	const PLAY_ROUGH      ; a4
+	const DSRMNGVOICE      ; a4
+	const AURA_SPHERE      ; a4
+	const FLAME_WHEEL      ; a4
+	const AIR_SLASH      ; a4
+	const SHADOWPUNCH      ; a4
+	const SHADOWBALL      ; a4
+	const GRASSYGLIDE      ; a4
+	const EARTHPOWER      ; a4
+	const POISONJAB      ; a4
+	const SLUDGEWAVE      ; a4
+	const AVALANCHE      ; a4
+	const PSYCHO_CUT      ; a4
+	const ANCIENTPOWER      ; a4
+	const FLASHCANNON         ; a4
 	const STRUGGLE     ; a5
 DEF NUM_ATTACKS EQU const_value - 1
 

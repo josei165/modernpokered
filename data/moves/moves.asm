@@ -12,7 +12,7 @@ Moves:
 ; Characteristics of each move.
 	table_width MOVE_LENGTH
 	move POUND,        NO_ADDITIONAL_EFFECT,        40, NORMAL,       100, 35
-	move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,        50, NORMAL,       100, 25
+	move U_TURN,  SWITCH_AND_TELEPORT_EFFECT,        50, BUG,       100, 25
 	move DOUBLESLAP,   TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,        85, 10
 	move COMET_PUNCH,  TWO_TO_FIVE_ATTACKS_EFFECT,  18, NORMAL,        85, 15
 	move MEGA_PUNCH,   NO_ADDITIONAL_EFFECT,        80, NORMAL,        85, 20
@@ -80,7 +80,7 @@ Moves:
 	move LOW_KICK,     FLINCH_SIDE_EFFECT2,         50, FIGHTING,      90, 20
 	move COUNTER,      NO_ADDITIONAL_EFFECT,         1, FIGHTING,     100, 20
 	move SEISMIC_TOSS, SPECIAL_DAMAGE_EFFECT,        1, FIGHTING,     100, 20
-	move STRENGTH,     NO_ADDITIONAL_EFFECT,        80, NORMAL,       100, 15
+	move STRENGTH,     SWITCH_AND_TELEPORT_EFFECT,        80, NORMAL,       100, 15
 	move ABSORB,       DRAIN_HP_EFFECT,             20, GRASS,        100, 20
 	move MEGA_DRAIN,   DRAIN_HP_EFFECT,             40, GRASS,        100, 10
 	move LEECH_SEED,   LEECH_SEED_EFFECT,            0, GRASS,         90, 10
@@ -175,7 +175,27 @@ Moves:
 	move TRI_ATTACK,   NO_ADDITIONAL_EFFECT,        80, NORMAL,       100, 10
 	move SUPER_FANG,   SUPER_FANG_EFFECT,            1, NORMAL,        90, 10
 	move SLASH,        NO_ADDITIONAL_EFFECT,        70, NORMAL,       100, 20
-	move SUBSTITUTE,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move SUBSTITUTE   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move FEINT_ATTACK   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move DARK_PULSE   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move DRAGON_CLAW   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move DRAGON_PULSE   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move VOLT_SWITCH   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move PLAY_ROUGH   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move DSRMNGVOICE   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move AURA_SPHERE   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move FLAME_WHEEL   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move AIR_SLASH   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move SHADOWPUNCH   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move SHADOWBALL   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move GRASSYGLIDE   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move EARTHPOWER   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move POISONJAB   ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move SLUDGEWAVE      ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move AVALANCHE      ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move PSYCHO_CUT      ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move ANCIENTPOWER      ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
+	move FLASHCANNON         ,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,       100, 10 ; made typeless, still physical.
 	assert_table_length NUM_ATTACKS
 MovesEndOfList:

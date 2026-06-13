@@ -113,12 +113,12 @@ DEF NUM_ITEMS EQU const_value - 1
 	const FLOOR_B4F     ; $62
 DEF NUM_FLOORS EQU const_value - 1 - NUM_ITEMS
 
-	const_next $C4
+;	const_next $AE extremeyellow commented this out, so i assume it's fine, so we can fit more tms and such
 
 ; HMs are defined before TMs, so the actual number of TM definitions
 ; is not yet available. The TM quantity is hard-coded here and must
 ; match the actual number below.
-DEF NUM_TMS EQU 50
+DEF NUM_TMS EQU 72
 
 DEF __tmhm_value__ = NUM_TMS + 1
 
@@ -139,7 +139,7 @@ MACRO add_hm
 ENDM
 
 DEF HM01 EQU const_value
-	add_hm CUT          ; $C4
+	add_hm CUT          ; $AE
 	add_hm FLY          ; $C5
 	add_hm SURF         ; $C6
 	add_hm STRENGTH     ; $C7
@@ -209,6 +209,28 @@ DEF TM01 EQU const_value
 	add_tm ROCK_SLIDE   ; $F8
 	add_tm TRI_ATTACK   ; $F9
 	add_tm SUBSTITUTE   ; $FA
+	add_tm FEINT_ATTACK   ; $FB
+	add_tm DARK_PULSE   ; $FC
+	add_tm DRAGON_CLAW   ; $FD
+	add_tm DRAGON_PULSE   ; $FE
+	add_tm VOLT_SWITCH   ; $FF
+	add_tm PLAY_ROUGH   ; $FF
+	add_tm DSRMNGVOICE   ; $FF
+	add_tm AURA_SPHERE   ; $FF
+	add_tm FLAME_WHEEL   ; $FF
+	add_tm FLAMETHROWER   ; $FF
+	add_tm AIR_SLASH   ; $FF
+	add_tm SHADOWPUNCH   ; $FF
+	add_tm SHADOWBALL   ; $FF
+	add_tm GRASSYGLIDE   ; $FF
+	add_tm EARTHPOWER   ; $FF
+	add_tm POISONJAB   ; $FF
+	add_tm SLUDGEWAVE   ; $FF
+	add_tm AVALANCHE   ; $FF
+	add_tm PSYCHO_CUT   ; $FF
+	add_tm ANCIENTPOWER   ; $FF
+	add_tm FLASHCANNON   ; $FF
+	add_tm WATERFALL   ; $FF
 ASSERT NUM_TMS == const_value - TM01, "NUM_TMS ({d:NUM_TMS}) does not match the number of add_tm definitions"
 
 DEF NUM_TM_HM EQU NUM_TMS + NUM_HMS

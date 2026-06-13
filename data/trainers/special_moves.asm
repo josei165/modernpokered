@@ -96,7 +96,7 @@ SpecialTrainerMoves:
 	db 4, 1, ROCK_SLIDE
 	db 4, 2, SCREECH
 	db 4, 4, EARTHQUAKE
-	db 5, 2, KARATE_CHOP
+	;db 5, 2, KARATE_CHOP
 	db 5, 3, STRENGTH
 	db 0
 

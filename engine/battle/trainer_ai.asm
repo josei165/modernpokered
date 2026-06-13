@@ -603,7 +603,29 @@ AISwitchIfEnoughMons:
 	and a
 	ret
 
+SwitchEnemyMonNoText:
+	call SwitchEnemyMonCommon
+	jp SwitchEnemyMonCommon2
+
 SwitchEnemyMon:
+	call SwitchEnemyMonCommon
+	ld hl, AIBattleWithdrawText
+	call PrintText
+	jp SwitchEnemyMonCommon2
+
+SwitchEnemyMonCommon:
+;;;;; shinpokerednote: CHANGED: if player using trapping move, then end their move
+	ld a, [wPlayerBattleStatus1]
+	bit USING_TRAPPING_MOVE, a
+	jr z, .preparewithdraw
+	ld hl, wPlayerBattleStatus1
+	res USING_TRAPPING_MOVE, [hl] 
+	xor a
+	ld [wPlayerNumAttacksLeft], a
+	ld a, $FF
+	ld [wPlayerSelectedMove], a
+.preparewithdraw
+;;;;;
 
 ; prepare to withdraw the active monster: copy HP, party pos, and status to roster
 
@@ -617,8 +639,28 @@ SwitchEnemyMon:
 	ld bc, MON_STATUS + 1 - MON_HP ; also copies party pos in-between HP and status
 	call CopyData
 
-	ld hl, AIBattleWithdrawText
-	call PrintText
+	;shinpokerednote: ADDED: don't copy PP information if transformed
+	ld a, [wEnemyBattleStatus3]
+	bit TRANSFORMED, a 	;check the state of the enemy transformed bit
+	ret nz	;skip ahead if bit is set
+	
+	;shinpokerednote: ADDED: copy PP information
+	ld a, [wEnemyMonPartyPos]
+	ld hl, wEnemyMon1PP
+	ld bc, wEnemyMon2 - wEnemyMon1
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld hl, wEnemyMonPP
+	ld bc, 4
+	call CopyData
+	ret
+
+SwitchEnemyMonCommon2:
+;;;;;;;;;; PureRGBnote: ADDED: clear the previous selected move here to reset disable functionality on opponent switching pokemon.
+	xor a
+	ld [wEnemyLastSelectedMoveDisable], a 
+;;;;;;;;;;
 
 	; This wFirstMonsNotOutYet variable is abused to prevent the player from
 	; switching in a new mon in response to this switch.
@@ -631,6 +673,10 @@ SwitchEnemyMon:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z
+
+	;shinpokerednote: FIXED: the act of switching clears hWhoseTurn, so it needs to be set back to 1
+	ld a, 1
+	ldh [hWhoseTurn], a
 	scf
 	ret
 

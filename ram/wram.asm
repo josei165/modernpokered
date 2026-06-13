@@ -1558,7 +1558,6 @@ wMonHBackSprite:: dw
 wMonHMoves:: ds NUM_MOVES
 wMonHGrowthRate:: db
 wMonHLearnset:: flag_array NUM_TMS + NUM_HMS
-	ds 1
 wMonHeaderEnd::
 
 ; saved at the start of a battle and then written back at the end of the battle
@@ -1678,8 +1677,10 @@ wSavedSpriteScreenY:: db
 wSavedSpriteScreenX:: db
 wSavedSpriteMapY:: db
 wSavedSpriteMapX:: db
+wBattleFunctionalFlags:: db
+wEnemyLastSelectedMoveDisable:: db
 
-	ds 5
+	ds 3
 
 wWhichPrize:: db
 
