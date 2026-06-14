@@ -11,41 +11,6 @@ features to come or already in place but not fully bug tested:
 - all trainers are mandatory but overworld puzzles won't be stupid like blue kaizo.
 
 
-sprite sources:
-gen 2 mons are from pokecrystal.
-some i got directly from the pokewilds repo, but i wasn't able to find who drew it.
-
-AquaReconChrisean
-BloodlessNS
-CelestialBanette
-Clark180
-Derpkip
-Enderific
-Galenorla
-ghwradu
-Gothica-the-Eevee
-Internet_Goblin
-Matsarth
-Menu
-Molk
-Nekroba
-OBD
-PetraSaru9
-PiaCRT
-Quarantine
-Rai21
-Ryastoise
-Sadfish
-Sage
-Scarlax
-ShadowOne333
-Shaqtothefuture
-stink
-The Worst Person Ever
-tyde07
-utytft
-Vajra
-
 
 
 
