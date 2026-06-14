@@ -2,13 +2,12 @@ wip hack rom built on top of pokered.
 
 features to come or already in place but not fully bug tested:
 
-- bug fixes from pokered wiki (and stuff like special split and special stat split).
 - ~~all gen 1 evos and forms from other gens (paldean tauros front and all added back sprites are pretty bad, since i had to change their resolutions to fit in here, palettes also not done).
   totalling 214 mons, dex will be completable, along with cheap balls/repels/full restores for qol (idk abt rare candies yet).~~
 - i plan on doing these types of roms for other games in the series, and outside of the bug fixes, updated type chart, special split and special stat split, type changes move update stats and stuff like that, i want the game to still feel like gen 1, i had plans on adding a lot of systems for different moves (like terrain, hazards, weather), but honestly, i want to limit myself to how much will be added to the game, because if i want to make use of all of those modern systems, i might aswell just make a rom through pokeemerald expansion and that will be much easier.
 
 
-- set mode only and no healing in battle.
+- set mode only, no healing in battle and level caps.
 - all trainers are mandatory but overworld puzzles won't be stupid like blue kaizo.
 
 
